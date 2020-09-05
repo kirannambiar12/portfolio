@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Passion+One&family=Roboto:wght@900&family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Long+Cang&display=swap');
 
 body {
     background-color: black;
 }
+
+.Typist .Cursor {
+    display: inline-block; }
+    .Typist .Cursor--blinking {
+      opacity: 1;
+      animation: blink 1s linear infinite; }
+  
+  @keyframes blink {
+    0% {
+      opacity: 1; }
+    50% {
+      opacity: 0; }
+    100% {
+      opacity: 1; } }
