@@ -47,7 +47,6 @@ const Wrapper = styled.section`
 
   .iam:after {
     content: "I am";
-    color: white;
     color: #ff0000;
   }
 
@@ -59,7 +58,6 @@ const Wrapper = styled.section`
 
   .name:after {
     content: "Kiran";
-    color: white;
     color: #ff0000;
   }
 
