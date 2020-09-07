@@ -5,6 +5,7 @@ import AOS from "aos";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
 
 const App = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

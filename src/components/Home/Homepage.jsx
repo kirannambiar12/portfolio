@@ -97,7 +97,7 @@ const Homepage = () => {
               >
               </h1>
               </Link>
-            <Link to="/about">
+            <Link to="/contact">
               <h1
                 data-aos="slide-right"
                 data-aos-delay="2000"

@@ -42,7 +42,7 @@ const Wrapper = styled.section`
   }
 
   img {
-    width: 200px;
+    width: 100px;
     height: auto;
     margin: auto;
     display: flex;
