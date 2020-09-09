@@ -85,7 +85,7 @@ const AboutDeveloper = () => {
           </div>
           <div className="col-4 p-5">
             <img className="img-fluid" src={deploy} alt="" />
-            <h1 className="full-stack">deployments</h1>
+            <h1 className="full-stack">Deployments</h1>
           </div>
         </div>
       </div>
