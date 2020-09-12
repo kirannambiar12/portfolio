@@ -1,6 +1,7 @@
 import React from "react";
 import AboutIntro from "./AboutIntro";
 import AboutDeveloper from "./AboutDeveloper";
+import Technologies from "./Technologies";
 
 
 const About = () => {
@@ -8,6 +9,7 @@ const About = () => {
       <>
     <AboutIntro />
     <AboutDeveloper />
+    <Technologies />
     </>
   );
 };

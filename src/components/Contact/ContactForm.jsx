@@ -125,7 +125,7 @@ const Wrapper = styled.section`
   }
 
   .social-icon-row {
-    margin: 50px auto;
+    margin-top: 50px;
   }
 
   a {
