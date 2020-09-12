@@ -12,7 +12,7 @@ const App = () => {
     AOS.init({
       duration: 1200,
       startEvent: "load",
-      disable: "mobile",
+      // disable: "mobile",
     });
   }, []);
 

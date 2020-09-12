@@ -24,11 +24,19 @@ const Wrapper = styled.section`
   .do-as-developer {
     font-family: "Archivo Black", sans-serif;
     color: white;
+    @media (max-width: 992px) { 
+      margin: auto;
+     }
+     @media (max-width: 576px) { 
+       padding-left: 20px;
+      margin: auto;
+     }
   }
 
   .full-stack {
     color: white;
     text-align: center;
+    font-size: 2.5vw;
   }
 
   span {
@@ -53,6 +61,14 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
   }
+
+  .icon {
+    padding: 10%;
+  }
+
+  .deploy {
+    margin-left: -10px;
+  }
 `;
 
 const AboutDeveloper = () => {
@@ -65,7 +81,7 @@ const AboutDeveloper = () => {
           </h1>
         </div>
         <div className="row">
-          <div className="col-8 mx-auto">
+          <div className="col-12 col-md-8 mx-auto">
             <p>
               It is a long established fact that a reader will be distracted by
               the readable content of a page when looking at its layout. The
@@ -75,17 +91,17 @@ const AboutDeveloper = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-4 p-5">
+          <div className="col-4 icon">
             <img className="img-fluid" src={frontend} alt="" />
             <h1 className="full-stack">Frontend</h1>
           </div>
-          <div className="col-4 p-5">
+          <div className="col-4 icon">
             <img className="img-fluid" src={backend} alt="" />
             <h1 className="full-stack">Backend</h1>
           </div>
-          <div className="col-4 p-5">
+          <div className="col-4 icon">
             <img className="img-fluid" src={deploy} alt="" />
-            <h1 className="full-stack">Deployments</h1>
+            <h1 className="full-stack deploy">Deployments</h1>
           </div>
         </div>
       </div>

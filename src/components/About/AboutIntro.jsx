@@ -6,6 +6,9 @@ import scroll from "../../assets/images/scroll.png";
 const Wrapper = styled.section`
   width: 100vw;
   height: 100vh;
+  @media (max-width: 768px) { 
+  height: unset;
+  }
 
   @keyframes blinkingText {
     0% {
@@ -34,18 +37,23 @@ const Wrapper = styled.section`
     }
   }
   .head-row {
-    padding-top: 8%;
+    padding-top: 5%;
   }
 
   .aboutus-img {
-      width: 400px;
+    width: 400px;
     float: right;
     object-fit: cover;
+    @media (max-width: 768px) { 
+      float: unset;
+      display: block;
+      margin: 50px auto;
+     }
   }
 
   .left-content {
     display: block;
-    margin: auto;
+    max-width: 500px;
   }
 
   h1 {
@@ -53,6 +61,9 @@ const Wrapper = styled.section`
     font-size: 88px;
     -webkit-text-stroke: 2px red;
     animation: blinkingText 10s infinite;
+    @media (max-width: 768px) { 
+      margin: auto;
+    }
   }
 
   p {
@@ -88,10 +99,12 @@ const AboutIntro = () => {
   return (
     <Wrapper>
       <div className="container">
-        <div className="row head-row">
-          <div className="col-6">
+      <div className="row head-row">
+      <h1>ABOUT</h1>
+      </div>
+        <div className="row">
+          <div className="col-12 col-md-6 order-sm-2 order-md-1">
             <div className="left-content">
-              <h1>ABOUT</h1>
               <p className="mt-5">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -106,12 +119,12 @@ const AboutIntro = () => {
               </p>
             </div>
           </div>
-          <div className="col-6 right-col ">
+          <div className="col-12 col-md-6 right-col order-sm-1 order-md-2">
             <img className="aboutus-img img-fluid" src={about} alt="" />
           </div>
         </div>
         <div className="row scroll-row">
-         <a href="#developer"> <img className="scroll-" src={scroll} alt="" /> </a>
+         <a href="#developer"> <img className="scroll- d-none d-lg-block" src={scroll} alt="" /> </a>
         </div>
       </div>
     </Wrapper>

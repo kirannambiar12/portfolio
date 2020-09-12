@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
@@ -87,7 +87,7 @@ const Wrapper = styled.section`
     height: 50px;
     margin-left: auto;
     color: white;
-    background-color: #A00404;
+    background-color: #a00404;
     border-color: #ff0000;
     border-radius: 5px;
     outline: none;
@@ -126,46 +126,80 @@ const Wrapper = styled.section`
   }
 
   .social-media-section {
-  p {
-    font-family: "Ubuntu", sans-serif;
-    font-size: 18px;
-  }
+    p {
+      font-family: "Ubuntu", sans-serif;
+      font-size: 18px;
+    }
   }
   .social-media-section:hover {
-  p {
-    color: red;
-  }
+    p {
+      color: red;
+    }
 
-  img {
-    transform: scale(1.2);
-    transition: 200ms ease-in;
-  }
+    img {
+      transform: scale(1.2);
+      transition: 200ms ease-in;
+    }
   }
 `;
 
 const ContactForm = () => {
+  const [name, setName] = useState("");
+  const [email_id, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    console.log(data);
+    fetch("http://127.0.0.1:8000/api/contact/", {
+      method: "POST",
+      body: data,
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          alert("Your message has been sent successfully. 🤝");
+          this.resetForm();
+        } else {
+          alert("Opps. There was some error submitting the form. Please try again. 😔");
+        }
+      })
+      .catch((error) => console.log("Request failed", error));
+  };
+
   return (
     <Wrapper>
       <div className="container" id="form">
         <div className="row">
-          <form noValidate autoComplete="off">
+          <form onSubmit={onSubmit}>
             <TextField
               autoComplete="new-password"
               id="outlined-basic"
               label="Full Name"
+              name="name"
               variant="outlined"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
             />
             <TextField
               id="outlined-basic"
               label="Email Address"
+              name="email_id"
               variant="outlined"
               autoComplete="new-password"
+              value={email_id}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <TextareaAutosize
               className="textbox"
               aria-label="minimum height"
+              name="subject"
               rowsMin={3}
               placeholder="Subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
             />
             <button>Submit</button>
           </form>
@@ -177,42 +211,58 @@ const ContactForm = () => {
         </div>
         <div className="row">
           <div className="col-2">
-            <a href="https://www.facebook.com/kiran.nambiar3/" target="_blank" rel='noopener'>
+            <a
+              href="https://www.facebook.com/kiran.nambiar3/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="social-media-section">
-              <img className="social-media" src={fb} alt="" />
-              <p className="mt-2">Facebook</p>
+                <img className="social-media" src={fb} alt="" />
+                <p className="mt-2">Facebook</p>
               </div>
             </a>
           </div>
           <div className="col-2">
-            <a href="https://www.instagram.com/abaddon_namby/" target="_blank" rel='noopener'>
-            <div className="social-media-section">
-              <img className="social-media" src={ig} alt="" />
-              <p className="mt-2">Instagram</p>
+            <a
+              href="https://www.instagram.com/abaddon_namby/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="social-media-section">
+                <img className="social-media" src={ig} alt="" />
+                <p className="mt-2">Instagram</p>
               </div>
             </a>
           </div>
           <div className="col-2">
             <a href="mailto: kirannambiar12@gmail.com">
-            <div className="social-media-section">
-              <img className="social-media" src={gmail} alt="" />
-              <p className="mt-2">Gmail</p>
+              <div className="social-media-section">
+                <img className="social-media" src={gmail} alt="" />
+                <p className="mt-2">Gmail</p>
               </div>
             </a>
           </div>
           <div className="col-2">
-            <a href="https://www.linkedin.com/in/kiran-nambiar-a48195152/" target="_blank" rel='noopener'>
-            <div className="social-media-section">
-              <img className="social-media" src={linkedin} alt="" />
-              <p className="mt-2">Linkedin</p>
+            <a
+              href="https://www.linkedin.com/in/kiran-nambiar-a48195152/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="social-media-section">
+                <img className="social-media" src={linkedin} alt="" />
+                <p className="mt-2">Linkedin</p>
               </div>
             </a>
           </div>
           <div className="col-2">
-            <a href="https://wa.me/9601481724" target="_blank" rel='noopener'>
-            <div className="social-media-section">
-              <img className="social-media" src={whatsapp} alt="" />
-              <p className="mt-2">Whatsapp</p>
+            <a
+              href="https://wa.me/9601481724"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="social-media-section">
+                <img className="social-media" src={whatsapp} alt="" />
+                <p className="mt-2">Whatsapp</p>
               </div>
             </a>
           </div>
