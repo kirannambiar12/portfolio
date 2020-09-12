@@ -19,6 +19,13 @@ const Wrapper = styled.section`
     color: white;
     font-size: 80px;
     margin: auto auto auto 100px;
+    @media (max-width: 992px) { 
+      margin: auto;
+      text-align: center;
+     }
+     @media (max-width: 768px) { 
+       font-size: 10vw;
+      }
   }
 
   span {
@@ -27,6 +34,13 @@ const Wrapper = styled.section`
     -webkit-text-stroke: 2px red;
     color: black;
     animation: zoomout 5s ease-in-out;
+    @media (max-width: 992px) { 
+      margin: auto;
+      text-align: center;
+     }
+     @media (max-width: 768px) { 
+      font-size: 14vw;
+      }
   }
   span:hover {
     color: red;
@@ -51,7 +65,7 @@ const ContactIntro = () => {
         <div className="row contact-me">
           <p>
             Feel Free to <br />
-           <a href="#form"> <span className="contact"> CONTACT </span> </a> me
+           <a href="#form"> <span className="contact"> CONTACT </span> </a> <br className="d-lg-none"/> me
          </p>
         </div>
       </div>

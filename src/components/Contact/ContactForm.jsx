@@ -91,6 +91,9 @@ const Wrapper = styled.section`
     border-color: #ff0000;
     border-radius: 5px;
     outline: none;
+    @media (max-width: 768px) { 
+       margin: 30px auto;
+      }
   }
   button:hover {
     background-color: #d50000;
@@ -117,8 +120,12 @@ const Wrapper = styled.section`
     color: white;
   }
 
-  .col-2 {
+  .social-icons {
     margin: auto;
+  }
+
+  .social-icon-row {
+    margin: 50px auto;
   }
 
   a {
@@ -209,8 +216,8 @@ const ContactForm = () => {
           <span className="px-2 align-self-center or-option">OR</span>
           <hr className="flex-grow-1" />
         </div>
-        <div className="row">
-          <div className="col-2">
+        <div className="row social-icon-row">
+          <div className="col-4 col-md-2 social-icons">
             <a
               href="https://www.facebook.com/kiran.nambiar3/"
               target="_blank"
@@ -222,7 +229,7 @@ const ContactForm = () => {
               </div>
             </a>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2 social-icons">
             <a
               href="https://www.instagram.com/abaddon_namby/"
               target="_blank"
@@ -234,7 +241,7 @@ const ContactForm = () => {
               </div>
             </a>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2 social-icons">
             <a href="mailto: kirannambiar12@gmail.com">
               <div className="social-media-section">
                 <img className="social-media" src={gmail} alt="" />
@@ -242,7 +249,7 @@ const ContactForm = () => {
               </div>
             </a>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2 social-icons">
             <a
               href="https://www.linkedin.com/in/kiran-nambiar-a48195152/"
               target="_blank"
@@ -254,7 +261,7 @@ const ContactForm = () => {
               </div>
             </a>
           </div>
-          <div className="col-2">
+          <div className="col-4 col-md-2 social-icons">
             <a
               href="https://wa.me/9601481724"
               target="_blank"
