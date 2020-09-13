@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import styled from "styled-components";
 import work from "../../assets/images/work.jpg";
@@ -10,6 +10,7 @@ const Wrapper = styled.section`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100vh;
 
   .progress {
     margin-bottom: 30px;
@@ -36,6 +37,7 @@ const Wrapper = styled.section`
 `;
 
 const Technologies = () => {
+
   return (
     <Wrapper>
       <div className="container">
@@ -45,8 +47,23 @@ const Technologies = () => {
           </h1>
         </div>
         <div className="progress-bars">
-        <span className="tech">Django :</span>  <ProgressBar className="django" striped animated variant="success" now={40} label="40%"/>
-        <span className="tech">Django :</span>  <ProgressBar className="react" striped animated variant="info" now={20} />
+          <span className="tech">Django :</span>{" "}
+          <ProgressBar
+            className="django"
+            striped
+            animated
+            variant="success"
+            now={40}
+            label="40%"
+          />
+          <span className="tech">Django :</span>{" "}
+          <ProgressBar
+            className="react"
+            striped
+            animated
+            variant="info"
+            now={20}
+          />
           <ProgressBar
             className="html-css"
             striped

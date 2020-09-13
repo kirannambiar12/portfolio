@@ -72,6 +72,7 @@ const Wrapper = styled.section`
 `;
 
 const AboutDeveloper = () => {
+  
   return (
     <Wrapper>
       <div className="container" id="developer">

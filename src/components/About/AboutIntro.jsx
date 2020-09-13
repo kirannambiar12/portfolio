@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import about from "../../assets/images/about.jpg";
 import scroll from "../../assets/images/scroll.png";
@@ -6,8 +6,8 @@ import scroll from "../../assets/images/scroll.png";
 const Wrapper = styled.section`
   width: 100vw;
   height: 100vh;
-  @media (max-width: 768px) { 
-  height: unset;
+  @media (max-width: 768px) {
+    height: unset;
   }
 
   @keyframes blinkingText {
@@ -15,13 +15,13 @@ const Wrapper = styled.section`
       color: red;
     }
     5% {
-        color: black;
+      color: black;
     }
     10% {
-        color: red;
+      color: red;
     }
     15% {
-        color: black;
+      color: black;
     }
     20% {
       color: red;
@@ -44,11 +44,11 @@ const Wrapper = styled.section`
     width: 400px;
     float: right;
     object-fit: cover;
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
       float: unset;
       display: block;
       margin: 50px auto;
-     }
+    }
   }
 
   .left-content {
@@ -61,7 +61,7 @@ const Wrapper = styled.section`
     font-size: 88px;
     -webkit-text-stroke: 2px red;
     animation: blinkingText 10s infinite;
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
       margin: auto;
     }
   }
@@ -90,43 +90,55 @@ const Wrapper = styled.section`
   }
 
   a {
-      margin: auto;
-      display: block;
+    margin: auto;
+    display: block;
   }
 `;
 
 const AboutIntro = () => {
+  const [aboutInfo, setAboutInfo] = useState();
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/about/")
+      .then((res) => res.json())
+      .then(setAboutInfo);
+  }, []);
+
   return (
     <Wrapper>
-      <div className="container">
-      <div className="row head-row">
-      <h1>ABOUT</h1>
-      </div>
-        <div className="row">
-          <div className="col-12 col-md-6 order-sm-2 order-md-1">
-            <div className="left-content">
-              <p className="mt-5">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.
-              </p>
+      {aboutInfo &&
+        aboutInfo.map((item) => {
+          return (
+            <div className="container">
+              <div className="row head-row">
+                <h1>{item.title}</h1>;
+              </div>
+              <div className="row">
+                <div className="col-12 col-md-6 order-sm-2 order-md-1">
+                  <div className="left-content">
+                    <p className="mt-5">{item.about_text}</p>
+                  </div>
+                </div>
+                <div className="col-12 col-md-6 right-col order-sm-1 order-md-2">
+                  <img
+                    className="aboutus-img img-fluid"
+                    src={item.about_img}
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="row scroll-row">
+                <a href="#developer">
+                  <img
+                    className="scroll- d-none d-lg-block"
+                    src={scroll}
+                    alt=""
+                  />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="col-12 col-md-6 right-col order-sm-1 order-md-2">
-            <img className="aboutus-img img-fluid" src={about} alt="" />
-          </div>
-        </div>
-        <div className="row scroll-row">
-         <a href="#developer"> <img className="scroll- d-none d-lg-block" src={scroll} alt="" /> </a>
-        </div>
-      </div>
+          );
+        })}
     </Wrapper>
   );
 };
