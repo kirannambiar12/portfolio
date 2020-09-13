@@ -111,7 +111,7 @@ const AboutIntro = () => {
           return (
             <div className="container">
               <div className="row head-row">
-                <h1>{item.title}</h1>;
+                <h1>{item.title}</h1>
               </div>
               <div className="row">
                 <div className="col-12 col-md-6 order-sm-2 order-md-1">
