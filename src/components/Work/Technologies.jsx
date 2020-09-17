@@ -3,6 +3,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import styled from "styled-components";
 import work from "../../assets/images/work.jpg";
 
+
 const Wrapper = styled.section`
   padding-top: 50px;
   padding-bottom: 50px;
@@ -36,7 +37,17 @@ const Wrapper = styled.section`
   }
 `;
 
+
 const Technologies = () => {
+
+
+  const [technology, setTechnology] = useState();
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/work/technology/")
+      .then((res) => res.json())
+      .then(setTechnology);
+  }, []);
 
   return (
     <Wrapper>
@@ -47,37 +58,20 @@ const Technologies = () => {
           </h1>
         </div>
         <div className="progress-bars">
-          <span className="tech">Django :</span>{" "}
+          { technology &&
+          technology.map((item) =>
+          <>
+          <span className="tech">{item.title}</span>
           <ProgressBar
-            className="django"
+            className={item.title}
             striped
+            variant={item.bar_color}
             animated
-            variant="success"
-            now={40}
-            label="40%"
+            now={item.percentage}
+            label={item.percentage + "%"}
           />
-          <span className="tech">Django :</span>{" "}
-          <ProgressBar
-            className="react"
-            striped
-            animated
-            variant="info"
-            now={20}
-          />
-          <ProgressBar
-            className="html-css"
-            striped
-            animated
-            variant="warning"
-            now={60}
-          />
-          <ProgressBar
-            className="bootstrap"
-            striped
-            animated
-            variant="danger"
-            now={80}
-          />
+          </>
+          )}
         </div>
       </div>
     </Wrapper>
@@ -85,3 +79,4 @@ const Technologies = () => {
 };
 
 export default Technologies;
+
