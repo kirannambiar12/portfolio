@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import home from "../../assets/images/home.jpg";
 import Typist from "react-typist";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Wrapper = styled.section`
   @keyframes fadeIn {
@@ -26,9 +26,9 @@ const Wrapper = styled.section`
     font-family: "Roboto", sans-serif;
     transform: translateY(20%);
     animation: none;
-    @media (max-width: 576px) { 
+    @media (max-width: 576px) {
       transform: translateY(130%);
-     }
+    }
   }
 
   h1 {
@@ -36,73 +36,72 @@ const Wrapper = styled.section`
     font-weight: 600;
     white-space: nowrap;
     margin: auto;
-    @media (max-width: 576px) { 
+    @media (max-width: 576px) {
       font-size: 16vw;
-     }
+    }
   }
 
   .hello:after {
     content: "Hello.";
     color: white;
-    @media (max-width: 576px) { 
-      content: "About"
-     }
-   }
+    @media (max-width: 576px) {
+      content: "About";
+    }
+  }
 
   .hello:hover:after {
     content: "About";
     margin-left: 50px;
     transition: ease-in-out 500ms;
-    @media (max-width: 576px) { 
+    @media (max-width: 576px) {
       margin-left: unset;
-     }
+    }
   }
 
   .iam:after {
     content: "I am";
     color: #ff0000;
-    @media (max-width: 576px) { 
-      content: "Work"
-     }
+    @media (max-width: 576px) {
+      content: "Work";
+    }
   }
 
   .iam:hover:after {
     content: "Work";
     margin-left: 50px;
     transition: ease-in-out 500ms;
-    @media (max-width: 576px) { 
+    @media (max-width: 576px) {
       margin-left: unset;
-     }
+    }
   }
 
   .name:after {
     content: "Kiran";
     color: #ff0000;
-    @media (max-width: 576px) { 
-      content: "Contact"
-     }
+    @media (max-width: 576px) {
+      content: "Contact";
+    }
   }
 
   .name:hover:after {
     content: "Contact";
     margin-left: 50px;
     transition: ease-in-out 500ms;
-    @media (max-width: 576px) { 
+    @media (max-width: 576px) {
       margin-left: unset;
-     }
+    }
   }
 
   .Typist {
-    font-size: 45px;
+    font-size: 25px;
     color: white;
-    font-family: 'Long Cang', cursive;
+    font-family: 'Source Sans Pro', sans-serif;
     white-space: nowrap;
   }
 
   a {
     text-decoration: none;
   }
-
 `;
 
 const Homepage = () => {
@@ -112,28 +111,32 @@ const Homepage = () => {
         <div className="row">
           <div className="col-12 col-md-6">
             <div className="intro">
-            <Link to="/about">
-              <h1 data-aos="slide-right" className="hello"></h1>
+              <Link to="/about">
+                <h1 data-aos="slide-right" className="hello" />
               </Link>
-            <Link to="/work">
-              <h1
-                data-aos="slide-right"
-                data-aos-delay="1000"
-                className="iam whoami"
+              <Link to="/work">
+                <h1
+                  data-aos="slide-right"
+                  data-aos-delay="1000"
+                  className="iam whoami"
+                />
+              </Link>
+              <Link to="/contact">
+                <h1
+                  data-aos="slide-right"
+                  data-aos-delay="2000"
+                  className="name whoami"
+                />
+              </Link>
+              <Typist
+                className="d-none d-md-block"
+                startDelay={3500}
+                avgTypingDelay={100}
+                hideWhenDone={false}
+                cursor={{ blink: true }}
               >
-              </h1>
-              </Link>
-            <Link to="/contact">
-              <h1
-                data-aos="slide-right"
-                data-aos-delay="2000"
-                className="name whoami"
-              >
-              </h1>
-              </Link>
-              <Typist className="d-none d-md-block" startDelay={3500} avgTypingDelay={100} hideWhenDone= {false} cursor={{  blink: true, }} >
                 <span> I am a developer by profession. </span>
-                <Typist.Backspace count={30} delay={1000}  />
+                <Typist.Backspace count={30} delay={1000} />
                 <span>like to travel. </span>
                 <Typist.Backspace count={8} delay={1000} />
                 <span>take photographs. </span>
