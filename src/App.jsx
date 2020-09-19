@@ -7,6 +7,7 @@ import NotFound from "./components/NotFound";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Technologies from "./components/Work/Technologies";
+import GoBack from "./components/GoBack";
 
 const App = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <div className="App">
       <Router>
+        <GoBack />
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/about" component={About} />
