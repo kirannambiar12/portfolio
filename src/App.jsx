@@ -9,7 +9,7 @@ import Contact from "./components/Contact/Contact";
 import Technologies from "./components/Work/Technologies";
 import GoBack from "./components/GoBack";
 
-const App = () => {
+const App = (props) => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -21,12 +21,12 @@ const App = () => {
   return (
     <div className="App">
       <Router>
-        <GoBack />
+      <GoBack />
         <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/work" component={Technologies} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/" component={Homepage}/>
+          <Route path="/about" component={About} />
+          <Route path="/work" component={Technologies} />
+          <Route path="/contact" component={Contact} />
           <Route path="*" component={NotFound} />
         </Switch>
       </Router>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
 
 
 const Wrapper = styled.section`
@@ -39,9 +40,12 @@ const Wrapper = styled.section`
 `;
 
 const GoBack = () => {
+
+    let location = useLocation();
+
   return (
     <Wrapper>
-     <div className="dropdown">
+     <div className={location.pathname === '/' ? "d-none" : "dropdown"}>
             <Link to="/">
               <p>BACK HOME</p>
             </Link>
