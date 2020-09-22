@@ -159,7 +159,7 @@ const ContactForm = () => {
     e.preventDefault();
     const data = new FormData(e.target);
     console.log(data);
-    fetch("http://127.0.0.1:8000/api/contact/", {
+    fetch("https://portfolio-django-backend.herokuapp.com/api/contact/", {
       method: "POST",
       body: data,
     })
