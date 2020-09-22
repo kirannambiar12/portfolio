@@ -99,7 +99,7 @@ const AboutIntro = () => {
   const [aboutInfo, setAboutInfo] = useState();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/about/")
+    fetch("https://portfolio-django-backend.herokuapp.com/api/about/")
       .then((res) => res.json())
       .then(setAboutInfo);
   }, []);

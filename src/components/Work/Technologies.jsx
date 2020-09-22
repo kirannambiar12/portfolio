@@ -44,7 +44,7 @@ const Technologies = () => {
   const [technology, setTechnology] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/work/technology/")
+    fetch("https://portfolio-django-backend.herokuapp.com/api/work/technology/")
       .then((res) => res.json())
       .then(setTechnology);
   }, []);
