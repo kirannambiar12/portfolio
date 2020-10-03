@@ -3,6 +3,7 @@ import styled from "styled-components";
 import home from "../../assets/images/home.jpg";
 import Typist from "react-typist";
 import { Link } from "react-router-dom";
+import MetaTags from "react-meta-tags";
 
 const Wrapper = styled.section`
   @keyframes fadeIn {
@@ -95,7 +96,7 @@ const Wrapper = styled.section`
   .Typist {
     font-size: 25px;
     color: white;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     white-space: nowrap;
   }
 
@@ -107,26 +108,32 @@ const Wrapper = styled.section`
 const Homepage = () => {
   return (
     <Wrapper>
+      <MetaTags>
+        <meta property="og:url" content="http://www.kirannambiar.in" />
+      </MetaTags>
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6">
             <div className="intro">
               <Link to="/about">
-                <h1 data-aos="slide-right" className="hello" > </h1>
+                <h1 data-aos="slide-right" className="hello">
+                </h1>
               </Link>
               <Link to="/work">
                 <h1
                   data-aos="slide-right"
                   data-aos-delay="1000"
                   className="iam whoami"
-                > </h1>
+                >
+                </h1>
               </Link>
               <Link to="/contact">
                 <h1
                   data-aos="slide-right"
                   data-aos-delay="2000"
                   className="name whoami"
-                > </h1>
+                >
+                </h1>
               </Link>
               <Typist
                 className="d-none d-md-block"

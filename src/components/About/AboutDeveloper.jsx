@@ -81,7 +81,7 @@ const AboutDeveloper = () => {
       {aboutDeveloper &&
         aboutDeveloper.map((item) => {
           return (
-            <div id="developer" style={{ backgroundImage: `url(${item.developer_background_img})` }}>
+            <div key={item.id} id="developer" style={{ backgroundImage: `url(${item.developer_background_img})` }}>
               <div className="container">
                 <div className="row">
                   <h1 className="mt-5 do-as-developer">

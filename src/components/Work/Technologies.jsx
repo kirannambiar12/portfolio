@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import styled from "styled-components";
 import Spinner from "../Spinner";
+import MetaTags from "react-meta-tags";
+
 
 const Wrapper = styled.section`
   padding-top: 50px;
@@ -42,6 +44,9 @@ const Technologies = () => {
 
   return (
     <Wrapper>
+      <MetaTags>
+        <meta property="og:url" content="http://www.kirannambiar.in/work" />
+      </MetaTags>
       {technology < 1 ? (
         <Spinner />
       ) : (
@@ -54,7 +59,7 @@ const Technologies = () => {
           <div className="progress-bars">
             {technology &&
               technology.map((item) => (
-                <>
+                <div key={item.id}>
                   <span className="tech">{item.title}</span>
                   <ProgressBar
                     className={item.title}
@@ -64,7 +69,7 @@ const Technologies = () => {
                     now={item.percentage}
                     label={item.percentage + "%"}
                   />
-                </>
+                </div>
               ))}
           </div>
         </div>

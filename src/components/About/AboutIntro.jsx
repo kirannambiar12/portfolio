@@ -109,7 +109,7 @@ const AboutIntro = () => {
       <Spinner />
          : aboutInfo.map((item) => {
           return (
-            <div className="container">
+            <div key={item.id} className="container">
               <div className="row head-row">
                 <h1>{item.title}</h1>
               </div>
