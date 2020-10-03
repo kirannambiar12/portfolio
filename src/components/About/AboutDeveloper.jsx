@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import code from "../../assets/images/code.jpg";
 import frontend from "../../assets/images/frontend.svg";
 import backend from "../../assets/images/backend.svg";
 import deploy from "../../assets/images/deployments.svg";

@@ -8,9 +8,11 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Technologies from "./components/Work/Technologies";
 import GoBack from "./components/GoBack";
+import "aos/dist/aos.css";
 
-const App = (props) => {
+const App = () => {
   useEffect(() => {
+    var AOS = require('aos');
     AOS.init({
       duration: 1200,
       startEvent: "load",

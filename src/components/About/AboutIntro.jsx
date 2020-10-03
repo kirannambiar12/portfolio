@@ -101,7 +101,6 @@ const AboutIntro = () => {
     fetch("https://portfolio-django-backend.herokuapp.com/api/about/")
       .then((res) => res.json())
       .then(res => setAboutInfo(res))
-      console.log(aboutInfo.length)
   }, []);
 
   return (

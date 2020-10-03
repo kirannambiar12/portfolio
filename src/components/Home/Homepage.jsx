@@ -112,21 +112,21 @@ const Homepage = () => {
           <div className="col-12 col-md-6">
             <div className="intro">
               <Link to="/about">
-                <h1 data-aos="slide-right" className="hello" />
+                <h1 data-aos="slide-right" className="hello" > </h1>
               </Link>
               <Link to="/work">
                 <h1
                   data-aos="slide-right"
                   data-aos-delay="1000"
                   className="iam whoami"
-                />
+                > </h1>
               </Link>
               <Link to="/contact">
                 <h1
                   data-aos="slide-right"
                   data-aos-delay="2000"
                   className="name whoami"
-                />
+                > </h1>
               </Link>
               <Typist
                 className="d-none d-md-block"
