@@ -5,8 +5,6 @@ import scroll from "../../assets/images/scroll.png";
 import Spinner from "../Spinner";
 
 const Wrapper = styled.section`
-  width: 100vw;
-  height: 100vh;
   @media (max-width: 768px) {
     height: unset;
   }
@@ -98,7 +96,6 @@ const Wrapper = styled.section`
 
 const AboutIntro = () => {
   const [aboutInfo, setAboutInfo] = useState([]);
-  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     fetch("https://portfolio-django-backend.herokuapp.com/api/about/")

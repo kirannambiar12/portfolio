@@ -13,6 +13,7 @@ const Wrapper = styled.section`
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
     white-space: nowrap;
+    z-index: 9;
 
     a {
         text-decoration: none;
@@ -36,6 +37,10 @@ const Wrapper = styled.section`
     }
 
     p:hover:after { transform: scaleX(1); }    
+
+    .back-home {
+      background-color: black;
+    }
   
 `;
 
@@ -47,7 +52,7 @@ const GoBack = () => {
     <Wrapper>
      <div className={location.pathname === '/' ? "d-none" : "dropdown"}>
             <Link to="/">
-              <p>BACK HOME</p>
+              <p className="px-2 py-2 back-home">BACK HOME</p>
             </Link>
           </div>
     </Wrapper>

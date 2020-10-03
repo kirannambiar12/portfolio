@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import styled from "styled-components";
-import work from "../../assets/images/work.jpg";
-
+import Spinner from "../Spinner";
 
 const Wrapper = styled.section`
   padding-top: 50px;
   padding-bottom: 50px;
-  background-image: url(${work});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
 
   .progress {
     margin-bottom: 30px;
@@ -37,11 +31,8 @@ const Wrapper = styled.section`
   }
 `;
 
-
 const Technologies = () => {
-
-
-  const [technology, setTechnology] = useState();
+  const [technology, setTechnology] = useState([]);
 
   useEffect(() => {
     fetch("https://portfolio-django-backend.herokuapp.com/api/work/technology/")
@@ -51,32 +42,35 @@ const Technologies = () => {
 
   return (
     <Wrapper>
-      <div className="container">
-        <div className="row my-5">
-          <h1>
-            What Do I <span> Work </span> On?
-          </h1>
+      {technology < 1 ? (
+        <Spinner />
+      ) : (
+        <div className="container">
+          <div className="row my-5">
+            <h1>
+              What Do I <span> Work </span> On?
+            </h1>
+          </div>
+          <div className="progress-bars">
+            {technology &&
+              technology.map((item) => (
+                <>
+                  <span className="tech">{item.title}</span>
+                  <ProgressBar
+                    className={item.title}
+                    striped
+                    variant={item.bar_color}
+                    animated
+                    now={item.percentage}
+                    label={item.percentage + "%"}
+                  />
+                </>
+              ))}
+          </div>
         </div>
-        <div className="progress-bars">
-          { technology &&
-          technology.map((item) =>
-          <>
-          <span className="tech">{item.title}</span>
-          <ProgressBar
-            className={item.title}
-            striped
-            variant={item.bar_color}
-            animated
-            now={item.percentage}
-            label={item.percentage + "%"}
-          />
-          </>
-          )}
-        </div>
-      </div>
+      )}
     </Wrapper>
   );
 };
 
 export default Technologies;
-

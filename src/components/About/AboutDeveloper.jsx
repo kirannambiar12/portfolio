@@ -6,7 +6,9 @@ import backend from "../../assets/images/backend.svg";
 import deploy from "../../assets/images/deployments.svg";
 
 const Wrapper = styled.section`
-
+ 
+  margin-top: 100px;
+  
   #developer {
     display: flex;
     flex-direction: column;
@@ -14,8 +16,6 @@ const Wrapper = styled.section`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
   }
 
   .do-as-developer {
