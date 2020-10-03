@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import about from "../../assets/images/about.jpg";
 import scroll from "../../assets/images/scroll.png";
+import Spinner from "../Spinner";
 
 const Wrapper = styled.section`
-  width: 100vw;
-  height: 100vh;
   @media (max-width: 768px) {
     height: unset;
   }
@@ -96,20 +95,21 @@ const Wrapper = styled.section`
 `;
 
 const AboutIntro = () => {
-  const [aboutInfo, setAboutInfo] = useState();
+  const [aboutInfo, setAboutInfo] = useState([]);
 
   useEffect(() => {
     fetch("https://portfolio-django-backend.herokuapp.com/api/about/")
       .then((res) => res.json())
-      .then(setAboutInfo);
+      .then(res => setAboutInfo(res))
   }, []);
 
   return (
     <Wrapper>
-      {aboutInfo &&
-        aboutInfo.map((item) => {
+      {aboutInfo < 1 ?
+      <Spinner />
+         : aboutInfo.map((item) => {
           return (
-            <div className="container">
+            <div key={item.id} className="container">
               <div className="row head-row">
                 <h1>{item.title}</h1>
               </div>
@@ -122,7 +122,7 @@ const AboutIntro = () => {
                 <div className="col-12 col-md-6 right-col order-sm-1 order-md-2">
                   <img
                     className="aboutus-img img-fluid"
-                    src={item.about_img}
+                    src={about}
                     alt=""
                   />
                 </div>
@@ -138,7 +138,7 @@ const AboutIntro = () => {
               </div>
             </div>
           );
-        })}
+        }) }
     </Wrapper>
   );
 };

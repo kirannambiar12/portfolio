@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import code from "../../assets/images/code.jpg";
 import frontend from "../../assets/images/frontend.svg";
 import backend from "../../assets/images/backend.svg";
 import deploy from "../../assets/images/deployments.svg";
 
 const Wrapper = styled.section`
-
+ 
+  margin-top: 100px;
+  
   #developer {
     display: flex;
     flex-direction: column;
@@ -14,8 +15,6 @@ const Wrapper = styled.section`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: 100vh;
   }
 
   .do-as-developer {
@@ -82,7 +81,7 @@ const AboutDeveloper = () => {
       {aboutDeveloper &&
         aboutDeveloper.map((item) => {
           return (
-            <div id="developer" style={{ backgroundImage: `url(${item.developer_background_img})` }}>
+            <div key={item.id} id="developer" style={{ backgroundImage: `url(${item.developer_background_img})` }}>
               <div className="container">
                 <div className="row">
                   <h1 className="mt-5 do-as-developer">

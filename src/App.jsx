@@ -8,8 +8,11 @@ import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Technologies from "./components/Work/Technologies";
 import GoBack from "./components/GoBack";
+import "aos/dist/aos.css";
+import Analytics from "react-router-ga";
 
-const App = (props) => {
+
+const App = () => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -22,6 +25,7 @@ const App = (props) => {
     <div className="App">
       <Router>
       <GoBack />
+      <Analytics id="UA-179513110-1">
         <Switch>
           <Route exact path="/" component={Homepage}/>
           <Route path="/about" component={About} />
@@ -29,6 +33,7 @@ const App = (props) => {
           <Route path="/contact" component={Contact} />
           <Route path="*" component={NotFound} />
         </Switch>
+        </Analytics>
       </Router>
     </div>
   );

@@ -4,9 +4,13 @@ import TextField from "@material-ui/core/TextField";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import fb from "../../assets/images/fb.svg";
 import ig from "../../assets/images/ig.svg";
+import btnLoader from "../../assets/images/btn-loader.svg";
 import gmail from "../../assets/images/gmail.svg";
 import linkedin from "../../assets/images/linkedin.svg";
 import whatsapp from "../../assets/images/whatsapp.svg";
+import { useToasts } from 'react-toast-notifications'
+
+
 
 const Wrapper = styled.section`
   height: 100vh;
@@ -154,21 +158,31 @@ const ContactForm = () => {
   const [name, setName] = useState("");
   const [email_id, setEmail] = useState("");
   const [subject, setSubject] = useState("");
+  const [loader, setLoader] = useState(false);
+  const { addToast } = useToasts();
+
+  const resetForm = () => {
+    setName('');
+    setEmail('');
+    setSubject('');
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    console.log(data);
+    setLoader(true);
     fetch("https://portfolio-django-backend.herokuapp.com/api/contact/", {
       method: "POST",
       body: data,
     })
       .then((response) => {
+
         if (response.status === 201) {
-          alert("Your message has been sent successfully. 🤝");
-          this.resetForm();
+          addToast("Your message has been sent successfully. 🤝", { appearance: 'success', autoDismiss: true, })
+          resetForm();
+          setLoader(false);
         } else {
-          alert("Opps. There was some error submitting the form. Please try again. 😔");
+          addToast("Opps. There was some error submitting the form. Please try again. 😔", { appearance: 'error', autoDismiss: true })
         }
       })
       .catch((error) => console.log("Request failed", error));
@@ -208,7 +222,7 @@ const ContactForm = () => {
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
             />
-            <button>Submit</button>
+            <button className="d-flex"> <p className="mx-auto mt-2"> Submit </p> { loader ? <img className="float-right mt-1" src={btnLoader} alt=""/> : null} </button>
           </form>
         </div>
         <div className="row text-center d-flex">
