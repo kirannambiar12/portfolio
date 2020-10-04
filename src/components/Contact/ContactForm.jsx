@@ -277,7 +277,7 @@ const ContactForm = () => {
           </div>
           <div className="col-4 col-md-2 social-icons">
             <a
-              href="https://wa.me/9601481724"
+              href="https://wa.me/+919601481724"
               target="_blank"
               rel="noopener noreferrer"
             >
