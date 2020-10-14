@@ -3,6 +3,7 @@ import styled from "styled-components";
 import frontend from "../../assets/images/frontend.svg";
 import backend from "../../assets/images/backend.svg";
 import deploy from "../../assets/images/deployments.svg";
+import ReactHtmlParser from "react-html-parser";
 
 const Wrapper = styled.section`
  
@@ -65,6 +66,12 @@ const Wrapper = styled.section`
   .deploy {
     margin-left: -10px;
   }
+
+  .dev-text p{
+    color: white;
+    font-family: "Ubuntu",sans-serif;
+    font-size: 18px;
+  }
 `;
 
 const AboutDeveloper = () => {
@@ -90,7 +97,7 @@ const AboutDeveloper = () => {
                 </div>
                 <div className="row mt-5">
                   <div className="col-12 col-md-8 mx-auto">
-                    <p>{item.about_developer_text}</p>
+                    <span className="dev-text">{ReactHtmlParser(item.about_developer_text)}</span>
                   </div>
                 </div>
                 <div className="row">

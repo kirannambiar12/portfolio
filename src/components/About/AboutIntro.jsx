@@ -3,6 +3,8 @@ import styled from "styled-components";
 import about from "../../assets/images/about.jpg";
 import scroll from "../../assets/images/scroll.png";
 import Spinner from "../Spinner";
+import ReactHtmlParser from "react-html-parser";
+
 
 const Wrapper = styled.section`
   @media (max-width: 768px) {
@@ -116,7 +118,7 @@ const AboutIntro = () => {
               <div className="row">
                 <div className="col-12 col-md-6 order-sm-2 order-md-1">
                   <div className="left-content">
-                    <p className="mt-5">{item.about_text}</p>
+                    <span className="mt-5">{ReactHtmlParser(item.about_text)}</span>
                   </div>
                 </div>
                 <div className="col-12 col-md-6 right-col order-sm-1 order-md-2">
