@@ -10,6 +10,7 @@ import Technologies from "./components/Work/Technologies";
 import GoBack from "./components/GoBack";
 import "aos/dist/aos.css";
 import Analytics from "react-router-ga";
+import Login from "./components/Authentication/Login";
 
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/about" component={About} />
           <Route path="/work" component={Technologies} />
           <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login} />
           <Route path="*" component={NotFound} />
         </Switch>
         </Analytics>
