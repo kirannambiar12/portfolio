@@ -5,10 +5,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-var sslRedirect = require('heroku-ssl-redirect');
-const app = express();
-app.use(sslRedirect());
-
 ReactDOM.render(
     <App />,
   document.getElementById('root')
