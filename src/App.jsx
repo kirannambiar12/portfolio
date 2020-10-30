@@ -10,7 +10,7 @@ import Technologies from "./components/Work/Technologies";
 import GoBack from "./components/GoBack";
 import "aos/dist/aos.css";
 import Analytics from "react-router-ga";
-
+import HttpsRedirect from 'react-https-redirect';
 
 const App = () => {
   useEffect(() => {
@@ -23,6 +23,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <HttpsRedirect>
       <Router>
       <GoBack />
       <Analytics id="UA-179513110-1">
@@ -35,6 +36,7 @@ const App = () => {
         </Switch>
         </Analytics>
       </Router>
+      </HttpsRedirect>
     </div>
   );
 };
