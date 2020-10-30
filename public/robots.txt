@@ -12,4 +12,4 @@ Allow: /about
 Allow: /work
 Allow: /contact
 
-Sitemap: http://www.kirannambiar.in/sitemap.xml
+Sitemap: https://www.kirannambiar.in/sitemap.xml
