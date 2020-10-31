@@ -2,8 +2,25 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useCookies } from "react-cookie";
+import { TextField } from "@material-ui/core";
 
-const Wrapper = styled.section``;
+const Wrapper = styled.section`
+
+  .form-input {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .login-form-section {
+    margin-top: 150px;
+  }
+
+  .login-heading {
+    font-family: "Archivo Black",sans-serif;
+    color: red;
+    letter-spacing: 2px;
+  }
+`;
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -31,19 +48,29 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <div>
-        <h1>LOGIN</h1>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button onClick={loginClicked}>SUBMIT</button>
+      <div className="container">
+        <div className="row mt-5">
+          <h1 className="d-block mx-auto login-heading">LOGIN</h1>
+        </div>
+        <div className="row flex-column justify-center login-form-section">
+          <div className="d-flex flex-column w-100">
+            <input
+              placeholder="Username"
+              className="form-input mt-4 mx-auto d-flex px-3"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              placeholder="Password"
+              className="form-input mt-4 mx-auto d-flex  px-3"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="mx-auto mt-5" onClick={loginClicked}>SUBMIT</button>
+          </div>
+          </div>
       </div>
     </Wrapper>
   );

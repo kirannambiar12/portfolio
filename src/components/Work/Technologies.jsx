@@ -59,17 +59,7 @@ const Technologies = () => {
           <div className="progress-bars">
             {technology &&
               technology.map((item) => (
-                <div key={item.id}>
-                  <span className="tech">{item.title}</span>
-                  <ProgressBar
-                    className={item.title}
-                    striped
-                    variant={item.bar_color}
-                    animated
-                    now={item.percentage}
-                    label={item.percentage + "%"}
-                  />
-                </div>
+                <h1>Hello</h1>
               ))}
           </div>
         </div>
