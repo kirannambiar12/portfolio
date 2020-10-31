@@ -11,7 +11,8 @@ import GoBack from "./components/GoBack";
 import "aos/dist/aos.css";
 import Analytics from "react-router-ga";
 import Login from "./components/Authentication/Login";
-
+import { CookiesProvider } from 'react-cookie';
+import Inbox from "./components/Inbox/Inbox";
 
 const App = () => {
   useEffect(() => {
@@ -28,11 +29,14 @@ const App = () => {
       <GoBack />
       <Analytics id="UA-179513110-1">
         <Switch>
+          <CookiesProvider>
+          <Route path="/login" component={Login} />
+          <Route path="/inbox" component={Inbox} />
           <Route exact path="/" component={Homepage}/>
           <Route path="/about" component={About} />
           <Route path="/work" component={Technologies} />
           <Route path="/contact" component={Contact} />
-          <Route path="/login" component={Login} />
+          </CookiesProvider>
           <Route path="*" component={NotFound} />
         </Switch>
         </Analytics>

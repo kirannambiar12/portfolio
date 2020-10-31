@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
-
+import { useCookies } from 'react-cookie';
 
 const Wrapper = styled.section`
 
@@ -11,10 +11,18 @@ const Login = () => {
 
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
+
+    const [token, setToken] = useCookies(['auth-token']);
+
+    useEffect(() => {
+        console.log("useEffect token", token)
+        if(token) window.location.href = '/inbox';
+        else window.location.href ='/login'
+    }, [token])
     
     const loginClicked = () => {
         const data = {username, password}
-        fetch('http://localhost:8001/auth/', {
+        fetch('http://localhost:8000/auth/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -22,7 +30,7 @@ const Login = () => {
                 body: JSON.stringify(data),
             })
             .then((res) => res.json())
-            .then((res) => console.log(res))
+            .then((res) => setToken('auth-token', res.token))
             .catch(error => console.log(error))
     }
 
