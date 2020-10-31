@@ -16,8 +16,6 @@ const Login = () => {
 
     useEffect(() => {
         console.log("useEffect token", token)
-        if(token) window.location.href = '/inbox';
-        else window.location.href ='/login'
     }, [token])
     
     const loginClicked = () => {

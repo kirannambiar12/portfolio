@@ -13,6 +13,7 @@ import Analytics from "react-router-ga";
 import Login from "./components/Authentication/Login";
 import { CookiesProvider } from 'react-cookie';
 import Inbox from "./components/Inbox/Inbox";
+import PrivateRoute from "./components/Authentication/PrivateRoute";
 
 const App = () => {
   useEffect(() => {
@@ -23,16 +24,17 @@ const App = () => {
     });
   }, []);
 
+
   return (
     <div className="App">
       <Router>
       <GoBack />
       <Analytics id="UA-179513110-1">
         <Switch>
-          <CookiesProvider>
-          <Route path="/login" component={Login} />
-          <Route path="/inbox" component={Inbox} />
+          <CookiesProvider >
           <Route exact path="/" component={Homepage}/>
+          <Route path="/login" component={Login} />
+          <PrivateRoute path="/inbox" component={Inbox} />
           <Route path="/about" component={About} />
           <Route path="/work" component={Technologies} />
           <Route path="/contact" component={Contact} />
