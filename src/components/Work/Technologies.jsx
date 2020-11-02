@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Spinner from "../Spinner";
 import MetaTags from "react-meta-tags";
+import ReactHtmlParser from "react-html-parser";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Wrapper = styled.section`
   padding-top: 50px;
@@ -39,6 +41,40 @@ const Wrapper = styled.section`
     border-bottom: 3px solid red;
     display: inline-block;
   }
+
+  .accordion-arrow {
+    color: red;
+    transform: rotate(90deg);
+    margin-top: -5px;
+  }
+
+  .accordion-box {
+    background-color: white;
+    padding: 20px;
+    p {
+      color: black;
+      font-family: "Ubuntu",sans-serif;
+    }
+  }
+
+  .accordion-head:hover + .accordion-box {
+      display: block !important;
+    }
+  
+    .accordion-head:hover{
+      cursor: pointer;
+    }
+
+
+
+  .accordion-box:hover {
+      display: block !important;
+    }
+
+  .hr-line {
+    background-color: white;
+  }
+  
 `;
 
 const Technologies = () => {
@@ -73,14 +109,17 @@ const Technologies = () => {
               service &&
               service.map((item, index) => {
                 const tech = item.technologies;
-                console.log(tech)
                 return (
                   <div key={index}>
-                    <h2 className="mt-5">{item.title}</h2>
+                    <h2 className="">{item.title}</h2>
                     <p>{item.description}</p>
                     {tech.map((e) => (
-                      <h5>{e}</h5>
+                      <div>
+                     <div className="d-inline-flex accordion-head py-3 pr-3"><h5 className="accordion-title">{e.title}</h5><i class="fas fa-chevron-right accordion-arrow"></i></div> 
+                      <div className="accordion-box d-none"><p>{ReactHtmlParser(e.description)}</p> </div>
+                      </div>
                     ))}
+                <hr className="hr-line my-5"/>
                   </div>
                 );
               })}

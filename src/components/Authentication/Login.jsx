@@ -48,10 +48,8 @@ const Login = () => {
   return (
     <Wrapper>
       <div className="container">
-        <div className="row mt-5">
-          <h1 className="d-block mx-auto login-heading">LOGIN</h1>
-        </div>
         <div className="row flex-column justify-center login-form-section">
+        <h1 className="d-block mx-auto login-heading mt-5">LOGIN</h1>
           <div className="d-flex flex-column w-100">
             <input
               placeholder="Username"
