@@ -1,3 +1,15 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+# Allow Images
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /
+Allow: /about
+Allow: /work
+Allow: /contact
+
+Sitemap: https://www.kirannambiar.in/sitemap.xml
