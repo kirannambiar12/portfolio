@@ -33,7 +33,7 @@ const Login = () => {
 
   const loginClicked = () => {
     const data = { username, password };
-    fetch("http://localhost:8000/auth/", {
+    fetch("https://portfolio-django-backend.herokuapp.com/auth/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

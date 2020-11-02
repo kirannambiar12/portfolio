@@ -82,10 +82,10 @@ const Technologies = () => {
   const [framework, setFramework] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/work/service")
+    fetch("https://portfolio-django-backend.herokuapp.com/api/work/service")
       .then((res) => res.json())
       .then(setService);
-    fetch("http://localhost:8000/api/work/f&t")
+    fetch("https://portfolio-django-backend.herokuapp.com/api/work/f&t")
       .then((res) => res.json())
       .then(setFramework);
   }, []);
@@ -112,7 +112,7 @@ const Technologies = () => {
                 return (
                   <div key={index}>
                     <h2 className="">{item.title}</h2>
-                    <p>{item.description}</p>
+                    <p>{ReactHtmlParser(item.description)}</p>
                     {tech.map((e) => (
                       <div>
                      <div className="d-inline-flex accordion-head py-3 pr-3"><h5 className="accordion-title">{e.title}</h5><i class="fas fa-chevron-right accordion-arrow"></i></div> 
