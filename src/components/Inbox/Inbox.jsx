@@ -1,5 +1,5 @@
 import React from "react";
-import { Cookies, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 import styled from "styled-components";
 
 

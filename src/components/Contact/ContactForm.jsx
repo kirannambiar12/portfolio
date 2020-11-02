@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import TextField from "@material-ui/core/TextField";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import fb from "../../assets/images/fb.svg";
 import ig from "../../assets/images/ig.svg";
 import btnLoader from "../../assets/images/btn-loader.svg";

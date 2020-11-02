@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import styled from "styled-components";
 import Spinner from "../Spinner";
 import MetaTags from "react-meta-tags";
-
 
 const Wrapper = styled.section`
   padding-top: 50px;
@@ -31,15 +29,29 @@ const Wrapper = styled.section`
     font-size: 22px;
     color: white;
   }
+
+  h2,
+  h5, p {
+    color: white;
+  }
+
+  h2 {
+    border-bottom: 3px solid red;
+    display: inline-block;
+  }
 `;
 
 const Technologies = () => {
-  const [technology, setTechnology] = useState([]);
+  const [service, setService] = useState([]);
+  const [framework, setFramework] = useState([]);
 
   useEffect(() => {
-    fetch("https://portfolio-django-backend.herokuapp.com/api/work/technology/")
+    fetch("http://localhost:8000/api/work/service")
       .then((res) => res.json())
-      .then(setTechnology);
+      .then(setService);
+    fetch("http://localhost:8000/api/work/f&t")
+      .then((res) => res.json())
+      .then(setFramework);
   }, []);
 
   return (
@@ -47,20 +59,31 @@ const Technologies = () => {
       <MetaTags>
         <meta property="og:url" content="http://www.kirannambiar.in/work" />
       </MetaTags>
-      {technology < 1 ? (
+      {service < 1 ? (
         <Spinner />
       ) : (
         <div className="container">
-          <div className="row my-5">
+          <div className="row my-2">
             <h1>
               What Do I <span> Work </span> On?
             </h1>
           </div>
           <div className="progress-bars">
-            {technology &&
-              technology.map((item) => (
-                <h1>Hello</h1>
-              ))}
+            {framework &&
+              service &&
+              service.map((item, index) => {
+                const tech = item.technologies;
+                console.log(tech)
+                return (
+                  <div key={index}>
+                    <h2 className="mt-5">{item.title}</h2>
+                    <p>{item.description}</p>
+                    {tech.map((e) => (
+                      <h5>{e}</h5>
+                    ))}
+                  </div>
+                );
+              })}
           </div>
         </div>
       )}
