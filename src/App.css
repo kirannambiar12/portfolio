@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Archivo+Black&family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
 
+
 html {
     scroll-behavior: smooth;
   }
@@ -27,4 +28,38 @@ body {
 
 .d-unset {
   display: unset !important;
+}
+
+.form-input-section {
+  width: 100%;
+  max-width: 900px;
+}
+
+.form-input {
+  width: 100%;
+  max-width: 900px;
+  height: 50px;
+  outline: none;
+}
+
+.form-textbox {
+  height: 150px;
+}
+
+button {
+  margin-top: 30px;
+  width: 300px;
+  height: 50px;
+  margin-left: auto;
+  color: white;
+  background-color: #a00404;
+  border-color: #ff0000;
+  border-radius: 5px;
+  outline: none;
+  @media (max-width: 768px) {
+    margin: 30px auto;
+  }
+}
+button:hover {
+  background-color: #d50000;
 }

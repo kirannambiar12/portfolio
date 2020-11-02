@@ -1,107 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import TextField from "@material-ui/core/TextField";
-import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import fb from "../../assets/images/fb.svg";
 import ig from "../../assets/images/ig.svg";
 import btnLoader from "../../assets/images/btn-loader.svg";
 import gmail from "../../assets/images/gmail.svg";
 import linkedin from "../../assets/images/linkedin.svg";
 import whatsapp from "../../assets/images/whatsapp.svg";
-import { useToasts } from 'react-toast-notifications'
-
-
+import { useToasts } from "react-toast-notifications";
 
 const Wrapper = styled.section`
+  
   height: 100vh;
-
-  #form {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  form {
-    background-color: black;
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border: 3px solid red !important;
-  }
-
-  .MuiFormLabel-root.Mui-focused {
-    color: red;
-    font-weight: 500;
-  }
-
-  .MuiFormControl-root {
-    margin-top: 30px;
-    background-color: black;
-  }
-  .MuiInputLabel-outlined {
-    color: white;
-  }
-
-  .MuiOutlinedInput-notchedOutline {
-    border-color: white !important;
-  }
-
-  .MuiInputBase-input {
-    color: white;
-  }
-
-  .textbox {
-    margin-top: 30px;
-    background-color: black;
-    border: 2px solid white;
-    outline: none;
-    border-radius: 4px;
-    padding: 10px;
-    color: white;
-  }
-  .textbox:focus {
-    border: 2px solid red;
-  }
-
-  .textbox::placeholder {
-    color: white;
-  }
-  .textbox:focus::placeholder {
-    color: grey;
-  }
-
-  .MuiOutlinedInput-input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px black inset;
-  }
-
-  input:-internal-autofill-selected {
-    color: black !important;
-  }
-
-  button {
-    margin-top: 30px;
-    width: 300px;
-    height: 50px;
-    margin-left: auto;
-    color: white;
-    background-color: #a00404;
-    border-color: #ff0000;
-    border-radius: 5px;
-    outline: none;
-    @media (max-width: 768px) { 
-       margin: 30px auto;
-      }
-  }
-  button:hover {
-    background-color: #d50000;
-  }
 
   hr {
     border-top: 3px solid red;
@@ -152,6 +61,11 @@ const Wrapper = styled.section`
       transition: 200ms ease-in;
     }
   }
+
+  .drop-msg {
+    color: white;
+    font-size: 14px;
+  }
 `;
 
 const ContactForm = () => {
@@ -162,27 +76,35 @@ const ContactForm = () => {
   const { addToast } = useToasts();
 
   const resetForm = () => {
-    setName('');
-    setEmail('');
-    setSubject('');
-  }
+    setName("");
+    setEmail("");
+    setSubject("");
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
+    const data = { name, email_id, subject };
     setLoader(true);
     fetch("https://portfolio-django-backend.herokuapp.com/api/contact/", {
       method: "POST",
-      body: data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
       .then((response) => {
-
         if (response.status === 201) {
-          addToast("Your message has been sent successfully. 🤝", { appearance: 'success', autoDismiss: true, })
+          addToast("Your message has been sent successfully. 🤝", {
+            appearance: "success",
+            autoDismiss: true,
+          });
           resetForm();
           setLoader(false);
         } else {
-          addToast("Opps. There was some error submitting the form. Please try again. 😔", { appearance: 'error', autoDismiss: true })
+          addToast(
+            "Opps. There was some error submitting the form. Please try again. 😔",
+            { appearance: "error", autoDismiss: true }
+          );
         }
       })
       .catch((error) => console.log("Request failed", error));
@@ -191,41 +113,38 @@ const ContactForm = () => {
   return (
     <Wrapper>
       <div className="container" id="form">
-        <div className="row">
-          <form onSubmit={onSubmit}>
-            <TextField
-              autoComplete="new-password"
-              id="outlined-basic"
-              label="Full Name"
-              name="name"
-              variant="outlined"
+        <div className="row flex-column form-input-section mx-auto">
+        <span className="drop-msg pt-5">Or incase if you feel like saying a hi to me? Please drop a message. I will be happy to hear from you.</span>
+            <input
+              className="form-input mt-4 mx-auto px-3"
+              placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
-            <TextField
-              id="outlined-basic"
-              label="Email Address"
-              name="email_id"
-              variant="outlined"
-              autoComplete="new-password"
+            <input
+              className="form-input mt-4 mx-auto px-3"
+              placeholder="Email Address"
+              type="email"
               value={email_id}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <TextareaAutosize
-              className="textbox"
-              aria-label="minimum height"
-              name="subject"
-              rowsMin={3}
+            <textarea
+              className="form-input mt-4 mx-auto px-3 pt-2 form-textbox"
+              rows="4"
               placeholder="Subject"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
             />
-            <button className="d-flex"> <p className="mx-auto mt-2"> Submit </p> { loader ? <img className="float-right mt-1" src={btnLoader} alt=""/> : null} </button>
-          </form>
+            <button onClick={onSubmit} className="d-flex">
+              <p className="mx-auto mt-2"> Submit </p>
+              {loader ? (
+                <img className="float-right mt-1" src={btnLoader} alt="" />
+              ) : null}
+            </button>
         </div>
-        <div className="row text-center d-flex">
+        <div className="row text-center d-flex mt-5 pt-5">
           <hr className="flex-grow-1" />
           <span className="px-2 align-self-center or-option">OR</span>
           <hr className="flex-grow-1" />

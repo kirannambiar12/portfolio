@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import styled from "styled-components";
 import Spinner from "../Spinner";
 import MetaTags from "react-meta-tags";
-
+import ReactHtmlParser from "react-html-parser";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Wrapper = styled.section`
   padding-top: 50px;
@@ -31,15 +31,63 @@ const Wrapper = styled.section`
     font-size: 22px;
     color: white;
   }
+
+  h2,
+  h5, p {
+    color: white;
+  }
+
+  h2 {
+    border-bottom: 3px solid red;
+    display: inline-block;
+  }
+
+  .accordion-arrow {
+    color: red;
+    transform: rotate(90deg);
+    margin-top: -5px;
+  }
+
+  .accordion-box {
+    background-color: white;
+    padding: 20px;
+    p {
+      color: black;
+      font-family: "Ubuntu",sans-serif;
+    }
+  }
+
+  .accordion-head:hover + .accordion-box {
+      display: block !important;
+    }
+  
+    .accordion-head:hover{
+      cursor: pointer;
+    }
+
+
+
+  .accordion-box:hover {
+      display: block !important;
+    }
+
+  .hr-line {
+    background-color: white;
+  }
+  
 `;
 
 const Technologies = () => {
-  const [technology, setTechnology] = useState([]);
+  const [service, setService] = useState([]);
+  const [framework, setFramework] = useState([]);
 
   useEffect(() => {
-    fetch("https://portfolio-django-backend.herokuapp.com/api/work/technology/")
+    fetch("http://localhost:8000/api/work/service")
       .then((res) => res.json())
-      .then(setTechnology);
+      .then(setService);
+    fetch("http://localhost:8000/api/work/f&t")
+      .then((res) => res.json())
+      .then(setFramework);
   }, []);
 
   return (
@@ -47,30 +95,34 @@ const Technologies = () => {
       <MetaTags>
         <meta property="og:url" content="http://www.kirannambiar.in/work" />
       </MetaTags>
-      {technology < 1 ? (
+      {service < 1 ? (
         <Spinner />
       ) : (
         <div className="container">
-          <div className="row my-5">
+          <div className="row my-2">
             <h1>
               What Do I <span> Work </span> On?
             </h1>
           </div>
           <div className="progress-bars">
-            {technology &&
-              technology.map((item) => (
-                <div key={item.id}>
-                  <span className="tech">{item.title}</span>
-                  <ProgressBar
-                    className={item.title}
-                    striped
-                    variant={item.bar_color}
-                    animated
-                    now={item.percentage}
-                    label={item.percentage + "%"}
-                  />
-                </div>
-              ))}
+            {framework &&
+              service &&
+              service.map((item, index) => {
+                const tech = item.technologies;
+                return (
+                  <div key={index}>
+                    <h2 className="">{item.title}</h2>
+                    <p>{item.description}</p>
+                    {tech.map((e) => (
+                      <div>
+                     <div className="d-inline-flex accordion-head py-3 pr-3"><h5 className="accordion-title">{e.title}</h5><i class="fas fa-chevron-right accordion-arrow"></i></div> 
+                      <div className="accordion-box d-none"><p>{ReactHtmlParser(e.description)}</p> </div>
+                      </div>
+                    ))}
+                <hr className="hr-line my-5"/>
+                  </div>
+                );
+              })}
           </div>
         </div>
       )}
