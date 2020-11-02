@@ -14,7 +14,7 @@ import Login from "./components/Authentication/Login";
 import { CookiesProvider } from "react-cookie";
 import Inbox from "./components/Inbox/Inbox";
 import PrivateRoute from "./components/Authentication/PrivateRoute";
-import HttpsRedirect from 'react-https-redirect';
+import HttpsRedirect from "react-https-redirect";
 
 const App = () => {
   useEffect(() => {
@@ -28,22 +28,22 @@ const App = () => {
   return (
     <div className="App">
       <HttpsRedirect>
-      <Router>
-        <GoBack />
-        <Analytics id="UA-179513110-1">
-          <Switch>
+        <Router>
+          <GoBack />
+          <Analytics id="UA-179513110-1">
             <CookiesProvider>
-              <Route exact path="/" component={Homepage} />
-              <Route path="/login" component={Login} />
-              <PrivateRoute path="/inbox" component={Inbox} />
-              <Route path="/about" component={About} />
-              <Route path="/work" component={Technologies} />
-              <Route path="/contact" component={Contact} />
+              <Switch>
+                <Route exact path="/" component={Homepage} />
+                <Route path="/login" component={Login} />
+                <PrivateRoute path="/inbox" component={Inbox} />
+                <Route path="/about" component={About} />
+                <Route path="/work" component={Technologies} />
+                <Route path="/contact" component={Contact} />
+                <Route path="*" component={NotFound} />
+              </Switch>
             </CookiesProvider>
-            <Route path="*" component={NotFound} />
-          </Switch>
-        </Analytics>
-      </Router>
+          </Analytics>
+        </Router>
       </HttpsRedirect>
     </div>
   );

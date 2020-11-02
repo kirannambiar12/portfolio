@@ -1,16 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
-import notfound from "../assets/images/notfound.jpg";
 
 
 
 const Wrapper = styled.section`
   font-family: "Roboto", sans-serif;
-  background-image: url(${notfound});
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   .notfound {
@@ -25,21 +20,20 @@ const Wrapper = styled.section`
 
   p {
     text-align: center;
-    font-size: 50px;
+    font-size: 30px;
     color: white;
     display: inline-block;
     vertical-align: middle;
   }
 
   button {
-    padding: 15px;
     background-color: #D50000;
     border-color: #ff0000;
     color: white;
     margin: auto;
     display: block;
     width: 100%;
-    max-width: 400px;
+    max-width: 200px;
     outline: none;
     font-size: 20px;
     border-radius: 5px;
@@ -62,7 +56,7 @@ const NotFound = () => {
       <div className="container">
         <div className="row">
           <div className="notfound">
-            <p>The page you are looking for can't be found.</p>
+            <p className="mb-5">The page you are looking for can't be found.</p>
             <Link to='/'>
             <button>Go Back Home</button>
             </Link>
