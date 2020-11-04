@@ -105,6 +105,7 @@ const ContactForm = () => {
             "Opps. There was some error submitting the form. Please try again. 😔",
             { appearance: "error", autoDismiss: true }
           );
+          setLoader(false);
         }
       })
       .catch((error) => console.log("Request failed", error));
