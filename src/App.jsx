@@ -15,6 +15,8 @@ import { CookiesProvider } from "react-cookie";
 import Inbox from "./components/Inbox/Inbox";
 import PrivateRoute from "./components/Authentication/PrivateRoute";
 import HttpsRedirect from "react-https-redirect";
+import { ToastProvider } from "react-toast-notifications";
+
 
 const App = () => {
   useEffect(() => {
@@ -28,10 +30,11 @@ const App = () => {
   return (
     <div className="App">
       <HttpsRedirect>
-        <Router>
+        <Router >
           <GoBack />
           <Analytics id="UA-179513110-1">
             <CookiesProvider>
+            <ToastProvider>
               <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/login" component={Login} />
@@ -41,6 +44,7 @@ const App = () => {
                 <Route path="/contact" component={Contact} />
                 <Route path="*" component={NotFound} />
               </Switch>
+              </ToastProvider>
             </CookiesProvider>
           </Analytics>
         </Router>
