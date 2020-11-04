@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useCookies } from "react-cookie";
@@ -27,6 +27,12 @@ const Login = () => {
   const [token, setToken] = useCookies(["auth-token"]);
   const { addToast } = useToasts();
 
+  useEffect(() => {
+    if (token["auth-token"] && token["auth-token"] !== "undefined") {
+      window.location.href = "/inbox";
+    }
+  }, [token]);
+
   const loginClicked = () => {
     const data = { username, password };
     fetch("https://portfolio-django-backend.herokuapp.com/auth/", {
@@ -40,6 +46,8 @@ const Login = () => {
         setToken("auth-token", res);
         window.location.href = "/inbox";
         return res.json();
+      } else if (token["auth-token"]) {
+        window.location.href = "/inbox";
       } else {
         addToast(
           "Authentication Failed. Please check your username and password.",
