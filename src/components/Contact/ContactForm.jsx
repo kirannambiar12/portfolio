@@ -9,7 +9,6 @@ import whatsapp from "../../assets/images/whatsapp.svg";
 import { useToasts } from "react-toast-notifications";
 
 const Wrapper = styled.section`
-  
   height: 100vh;
 
   hr {
@@ -115,35 +114,38 @@ const ContactForm = () => {
     <Wrapper>
       <div className="container" id="form">
         <div className="row flex-column form-input-section mx-auto">
-        <span className="drop-msg pt-5">Or incase if you feel like saying a hi to me? Please drop a message. I will be happy to hear from you.</span>
-            <input
-              className="form-input mt-4 mx-auto px-3"
-              placeholder="Full Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <input
-              className="form-input mt-4 mx-auto px-3"
-              placeholder="Email Address"
-              type="email"
-              value={email_id}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <textarea
-              className="form-input mt-4 mx-auto px-3 pt-2 form-textbox"
-              rows="4"
-              placeholder="Subject"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
-            />
-            <button onClick={onSubmit} className="d-flex">
-              <p className="mx-auto mt-2"> Submit </p>
-              {loader ? (
-                <img className="float-right mt-1" src={btnLoader} alt="" />
-              ) : null}
-            </button>
+          <span className="drop-msg pt-5">
+            Or incase if you feel like saying a hi to me? Please drop a message.
+            I will be happy to hear from you.
+          </span>
+          <input
+            className="form-input mt-4 mx-auto px-3"
+            placeholder="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <input
+            className="form-input mt-4 mx-auto px-3"
+            placeholder="Email Address"
+            type="email"
+            value={email_id}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <textarea
+            className="form-input mt-4 mx-auto px-3 pt-2 form-textbox"
+            rows="4"
+            placeholder="Subject"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          <button onClick={onSubmit} className="d-flex">
+            <p className="mx-auto mt-2"> Submit </p>
+            {loader ? (
+              <img className="float-right mt-1" src={btnLoader} alt="" />
+            ) : null}
+          </button>
         </div>
         <div className="row text-center d-flex mt-5 pt-5">
           <hr className="flex-grow-1" />
