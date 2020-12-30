@@ -17,7 +17,6 @@ import PrivateRoute from "./components/Authentication/PrivateRoute";
 import HttpsRedirect from "react-https-redirect";
 import { ToastProvider } from "react-toast-notifications";
 
-
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -30,20 +29,20 @@ const App = () => {
   return (
     <div className="App">
       <HttpsRedirect>
-        <Router >
+        <Router>
           <GoBack />
           <Analytics id="UA-179513110-1">
             <CookiesProvider>
-            <ToastProvider>
-              <Switch>
-                <Route exact path="/" component={Homepage} />
-                <Route path="/login" component={Login} />
-                <PrivateRoute path="/inbox" component={Inbox} />
-                <Route path="/about" component={About} />
-                <Route path="/work" component={Technologies} />
-                <Route path="/contact" component={Contact} />
-                <Route path="*" component={NotFound} />
-              </Switch>
+              <ToastProvider>
+                <Switch>
+                  <Route exact path="/" component={Homepage} />
+                  <Route path="/login" component={Login} />
+                  <PrivateRoute path="/inbox" component={Inbox} />
+                  <Route path="/about" component={About} />
+                  <Route path="/work" component={Technologies} />
+                  <Route path="/contact" component={Contact} />
+                  <Route path="*" component={NotFound} />
+                </Switch>
               </ToastProvider>
             </CookiesProvider>
           </Analytics>
