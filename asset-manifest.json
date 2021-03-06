@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.bff59c4e.chunk.css",
+    "main.js": "/portfolio/static/js/main.06196e7d.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.06196e7d.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.209c2d7e.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.209c2d7e.js.map",
+    "static/css/2.20e8afa4.chunk.css": "/portfolio/static/css/2.20e8afa4.chunk.css",
+    "static/js/2.2e541cea.chunk.js": "/portfolio/static/js/2.2e541cea.chunk.js",
+    "static/js/2.2e541cea.chunk.js.map": "/portfolio/static/js/2.2e541cea.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.e588bbfe50a7574c16bf180f3fc0822f.js": "/portfolio/precache-manifest.e588bbfe50a7574c16bf180f3fc0822f.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/2.20e8afa4.chunk.css.map": "/portfolio/static/css/2.20e8afa4.chunk.css.map",
+    "static/css/main.bff59c4e.chunk.css.map": "/portfolio/static/css/main.bff59c4e.chunk.css.map",
+    "static/js/2.2e541cea.chunk.js.LICENSE.txt": "/portfolio/static/js/2.2e541cea.chunk.js.LICENSE.txt",
+    "static/media/about.jpg": "/portfolio/static/media/about.91f69b2a.jpg",
+    "static/media/backend.svg": "/portfolio/static/media/backend.446ed955.svg",
+    "static/media/btn-loader.svg": "/portfolio/static/media/btn-loader.be3824b2.svg",
+    "static/media/delete.svg": "/portfolio/static/media/delete.9fbc5349.svg",
+    "static/media/deployments.svg": "/portfolio/static/media/deployments.c3fa47b0.svg",
+    "static/media/all.min.css": "/portfolio/static/media/fa-solid-900.8e1ed89b.woff2",
+    "static/media/fb.svg": "/portfolio/static/media/fb.d5e7faf4.svg",
+    "static/media/frontend.svg": "/portfolio/static/media/frontend.b7cb05fa.svg",
+    "static/media/gmail.svg": "/portfolio/static/media/gmail.bd98d721.svg",
+    "static/media/home.jpg": "/portfolio/static/media/home.5775f861.jpg",
+    "static/media/ig.svg": "/portfolio/static/media/ig.421eb527.svg",
+    "static/media/linkedin.svg": "/portfolio/static/media/linkedin.a1f6665d.svg",
+    "static/media/spinner.gif": "/portfolio/static/media/spinner.2a968e47.gif",
+    "static/media/whatsapp.svg": "/portfolio/static/media/whatsapp.bb263658.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.209c2d7e.js",
+    "static/css/2.20e8afa4.chunk.css",
+    "static/js/2.2e541cea.chunk.js",
+    "static/css/main.bff59c4e.chunk.css",
+    "static/js/main.06196e7d.chunk.js"
+  ]
+}
