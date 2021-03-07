@@ -137,9 +137,9 @@ const Inbox = () => {
       </h3>
       <div className="container">
         <div className="row">
-          <a href="javascript:void(0);" className="mr-5 ml-auto mb-5 logout" onClick={() => logout()}>
+          <span className="mr-5 ml-auto mb-5 logout" onClick={() => logout()}>
             Logout
-          </a>
+          </span>
         </div>
         {emails && emails.length > 0 && (
           <div className="row email-heading pt-2">
