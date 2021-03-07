@@ -81,7 +81,9 @@ const Inbox = () => {
   const [show, setShow] = useState(false);
   const { addToast } = useToasts();
 
-  const handleClose = (index) => {
+  console.log(token, show, setToken);
+
+  const handleClose = () => {
     setShow(false);
     setEmailIndex(null);
   };
@@ -135,7 +137,7 @@ const Inbox = () => {
       </h3>
       <div className="container">
         <div className="row">
-          <a className="mr-5 ml-auto mb-5 logout" onClick={() => logout()}>
+          <a href="javascript:void(0);" className="mr-5 ml-auto mb-5 logout" onClick={() => logout()}>
             Logout
           </a>
         </div>
