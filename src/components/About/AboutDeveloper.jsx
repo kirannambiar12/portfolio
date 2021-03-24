@@ -55,6 +55,9 @@ const Wrapper = styled.section`
 
   .icon {
     padding: 5% 10% 5% 10%;
+    @media (max-width: 600px) {
+      padding: 5% 5% 5% 5%;
+    }
   }
 
   .deploy {

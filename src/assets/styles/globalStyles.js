@@ -144,6 +144,12 @@ button:hover {
     color: red !important;
 }
 
+.MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
+  @media (max-width: 600px) {
+    width: auto;
+  }
+}
+
 .active-link {
   .MuiSvgIcon-fontSizeLarge, .MuiBottomNavigationAction-label {
     color: red !important;
