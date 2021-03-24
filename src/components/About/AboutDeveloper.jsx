@@ -7,7 +7,7 @@ import ReactHtmlParser from "react-html-parser";
 
 const Wrapper = styled.section`
  
-  margin-top: 100px;
+  margin-top: 60px;
   
   #developer {
     display: flex;
@@ -33,17 +33,11 @@ const Wrapper = styled.section`
   .full-stack {
     color: white;
     text-align: center;
-    font-size: 2.5vw;
+    font-size: 18px;
   }
 
   span {
     color: red;
-  }
-
-  p {
-    color: white;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 22px;
   }
 
   img {
@@ -60,11 +54,15 @@ const Wrapper = styled.section`
   }
 
   .icon {
-    padding: 10%;
+    padding: 5% 10% 5% 10%;
   }
 
   .deploy {
     margin-left: -10px;
+  }
+
+  .full-stack-logo {
+    width: 70px;
   }
 
   .dev-text p{
@@ -91,27 +89,27 @@ const AboutDeveloper = () => {
             <div key={item.id} id="developer" style={{ backgroundImage: `url(${item.developer_background_img})` }}>
               <div className="container">
                 <div className="row">
-                  <h1 className="mt-5 do-as-developer">
+                  <h3 className="mt-5 do-as-developer">
                     What I Do As A <span> Developer? </span>
-                  </h1>
+                  </h3>
                 </div>
-                <div className="row mt-5">
+                <div className="row content-spacing-30t">
                   <div className="col-12 col-md-8 mx-auto">
-                    <span className="dev-text">{ReactHtmlParser(item.about_developer_text)}</span>
+                    <p className="paragraph color-white">{ReactHtmlParser(item.about_developer_text)}</p>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-4 icon">
-                    <img className="img-fluid" src={frontend} alt="" />
-                    <h1 className="full-stack">Frontend</h1>
+                    <img className="img-fluid full-stack-logo" src={frontend} alt="" />
+                    <p className="full-stack mt-3">Frontend</p>
                   </div>
                   <div className="col-4 icon">
-                    <img className="img-fluid" src={backend} alt="" />
-                    <h1 className="full-stack">Backend</h1>
+                    <img className="img-fluid full-stack-logo" src={backend} alt="" />
+                    <p className="full-stack mt-3">Backend</p>
                   </div>
                   <div className="col-4 icon">
-                    <img className="img-fluid" src={deploy} alt="" />
-                    <h1 className="full-stack deploy">Deployments</h1>
+                    <img className="img-fluid full-stack-logo" src={deploy} alt="" />
+                    <p className="full-stack mt-3 deploy">Deployments</p>
                   </div>
                 </div>
               </div>

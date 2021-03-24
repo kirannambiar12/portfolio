@@ -46,8 +46,7 @@ const Wrapper = styled.section`
 
   .social-media-section {
     p {
-      font-family: "Ubuntu", sans-serif;
-      font-size: 18px;
+      font-size: 14px;
     }
   }
   .social-media-section:hover {
@@ -161,7 +160,7 @@ const ContactForm = () => {
             >
               <div className="social-media-section">
                 <img className="social-media" src={fb} alt="" />
-                <p className="mt-2">Facebook</p>
+                <p className="mt-2 paragraph">Facebook</p>
               </div>
             </a>
           </div>
@@ -173,7 +172,7 @@ const ContactForm = () => {
             >
               <div className="social-media-section">
                 <img className="social-media" src={ig} alt="" />
-                <p className="mt-2">Instagram</p>
+                <p className="mt-2 paragraph">Instagram</p>
               </div>
             </a>
           </div>
@@ -181,7 +180,7 @@ const ContactForm = () => {
             <a href="mailto: kirannambiar12@gmail.com">
               <div className="social-media-section">
                 <img className="social-media" src={gmail} alt="" />
-                <p className="mt-2">Gmail</p>
+                <p className="mt-2 paragraph">Gmail</p>
               </div>
             </a>
           </div>
@@ -193,7 +192,7 @@ const ContactForm = () => {
             >
               <div className="social-media-section">
                 <img className="social-media" src={linkedin} alt="" />
-                <p className="mt-2">Linkedin</p>
+                <p className="mt-2 paragraph">Linkedin</p>
               </div>
             </a>
           </div>
@@ -205,7 +204,7 @@ const ContactForm = () => {
             >
               <div className="social-media-section">
                 <img className="social-media" src={whatsapp} alt="" />
-                <p className="mt-2">Whatsapp</p>
+                <p className="mt-2 paragraph">Whatsapp</p>
               </div>
             </a>
           </div>

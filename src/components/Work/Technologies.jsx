@@ -32,12 +32,12 @@ const Wrapper = styled.section`
     color: white;
   }
 
-  h2,
-  h5, p {
+  h3,
+  h5, h4, p {
     color: white;
   }
 
-  h2 {
+  h4 {
     border-bottom: 3px solid red;
     display: inline-block;
   }
@@ -99,10 +99,10 @@ const Technologies = () => {
         <Spinner />
       ) : (
         <div className="container">
-          <div className="row my-2">
-            <h1>
+          <div className="row section-spacing-50t">
+            <h3 className="ml-3">
               What Do I <span> Work </span> On?
-            </h1>
+            </h3>
           </div>
           <div className="progress-bars">
             {framework &&
@@ -111,7 +111,7 @@ const Technologies = () => {
                 const tech = item.technologies;
                 return (
                   <div key={index}>
-                    <h2 className="">{item.title}</h2>
+                    <h4 className="mb-4">{item.title}</h4>
                     <p>{ReactHtmlParser(item.description)}</p>
                     {tech.map((e) => (
                       <div>

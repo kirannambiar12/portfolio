@@ -58,7 +58,7 @@ const ContactIntro = () => {
     <Wrapper>
       <div className="container">
         <div className="row contact-me ">
-          <p>
+          <p className="contact-intro">
             Feel Free to <br />
             <a href="#form">
               <span className="contact"> CONTACT </span>

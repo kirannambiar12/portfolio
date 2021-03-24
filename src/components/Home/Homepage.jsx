@@ -32,16 +32,6 @@ const Wrapper = styled.section`
     }
   }
 
-  h1 {
-    font-size: 8rem;
-    font-weight: 600;
-    white-space: nowrap;
-    margin: auto;
-    @media (max-width: 576px) {
-      font-size: 16vw;
-    }
-  }
-
   .hello:after {
     content: "Hello.";
     color: white;
@@ -116,14 +106,14 @@ const Homepage = () => {
           <div className="col-12 col-md-6">
             <div className="intro">
               <Link to="/about">
-                <h1 data-aos="slide-right" className="hello">
+                <h1 data-aos="slide-right" className="hello mx-auto">
                 </h1>
               </Link>
               <Link to="/work">
                 <h1
                   data-aos="slide-right"
                   data-aos-delay="1000"
-                  className="iam whoami"
+                  className="iam whoami mx-auto"
                 >
                 </h1>
               </Link>
@@ -131,7 +121,7 @@ const Homepage = () => {
                 <h1
                   data-aos="slide-right"
                   data-aos-delay="2000"
-                  className="name whoami"
+                  className="name whoami mx-auto"
                 >
                 </h1>
               </Link>

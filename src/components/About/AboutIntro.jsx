@@ -37,9 +37,6 @@ const Wrapper = styled.section`
       color: red;
     }
   }
-  .head-row {
-    padding-top: 5%;
-  }
 
   .aboutus-img {
     width: 400px;
@@ -57,13 +54,13 @@ const Wrapper = styled.section`
     max-width: 500px;
   }
 
-  h1 {
-    font-family: "Archivo Black", sans-serif;
-    font-size: 88px;
+  .about-intro-title {
     -webkit-text-stroke: 2px red;
     animation: blinkingText 10s infinite;
-    @media (max-width: 768px) {
+    margin-left: 18px;
+    @media (max-width: 600px) {
       margin: auto;
+      text-align: center;
     }
   }
 
@@ -112,31 +109,22 @@ const AboutIntro = () => {
          : aboutInfo.map((item) => {
           return (
             <div key={item.id} className="container">
-              <div className="row head-row">
-                <h1>{item.title}</h1>
+              <div className="row section-spacing-80t">
+                <h2 className="about-intro-title">{item.title}</h2>
               </div>
-              <div className="row">
-                <div className="col-12 col-md-6 order-sm-2 order-md-1">
+              <div className="row content-spacing-30t">
+                <div className="col-12 col-md-6 order-2 order-md-1">
                   <div className="left-content">
                     <span className="mt-5">{ReactHtmlParser(item.about_text)}</span>
                   </div>
                 </div>
-                <div className="col-12 col-md-6 right-col order-sm-1 order-md-2">
+                <div className="col-12 col-md-6 right-col order-1 order-md-2">
                   <img
                     className="aboutus-img img-fluid"
                     src={about}
                     alt=""
                   />
                 </div>
-              </div>
-              <div className="row scroll-row">
-                <a href="#developer">
-                  <img
-                    className="scroll- d-none d-lg-block"
-                    src={scroll}
-                    alt=""
-                  />
-                </a>
               </div>
             </div>
           );
