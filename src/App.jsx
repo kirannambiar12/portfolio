@@ -7,7 +7,7 @@ import NotFound from "./components/NotFound";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Technologies from "./components/Work/Technologies";
-import Header from "./components/Header";
+import Header from "./components/Navigation/Header";
 import "aos/dist/aos.css";
 import Analytics from "react-router-ga";
 import Login from "./components/Authentication/Login";

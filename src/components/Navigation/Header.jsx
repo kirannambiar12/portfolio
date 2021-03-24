@@ -6,6 +6,9 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import InfoIcon from '@material-ui/icons/Info';
 import WorkIcon from '@material-ui/icons/Work';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+import SideDrawer from "./Drawer"
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import styled from "styled-components";
 
 const useStyles = makeStyles({
   root: {
@@ -32,15 +35,30 @@ const useStyles = makeStyles({
       color: 'red',
    },
   },
+  openCloseBtn: {
+    position: 'fixed',
+    width: '50px',
+    top: '100px',
+    backgroundColor: 'black',
+    padding: '15px 0px 15px 0px',
+    borderRadius: '0px 5px 5px 0px',
+    display: 'flex',
+    zIndex: '1400',
+    '&:hover': {
+      backgroundColor: '#2A2A2A',
+   },
+}
 });
 
 const Header = () => {
 
     let location = useLocation();
     const classes = useStyles();
+    const [state, setState] = React.useState(false);
     const [value, setValue] = React.useState(0);
 
     return (
+      <div>
       <BottomNavigation
         value={value}
         onChange={(event, newValue) => {
@@ -53,7 +71,27 @@ const Header = () => {
        <NavLink className="text-decoration-none" activeClassName='active-link' to="/work"><BottomNavigationAction className={classes.navigationBtn} label="Work" icon={<WorkIcon className={classes.materialIcon} fontSize="large" />} /></NavLink> 
        <NavLink className="text-decoration-none" activeClassName='active-link' to="/contact"><BottomNavigationAction className={classes.navigationBtn} label="Contact" icon={<ContactMailIcon className={classes.materialIcon} fontSize="large" />} /></NavLink> 
       </BottomNavigation>
+      <SideDrawer state={state} setState={setState} />
+      <PeakBtnWrapper left={state ? "250px" : "-20px"} rotate={state ? "180deg" : "0"}>
+      <div onClick={() => setState(!state)} className={`peak-btn cursor-pointer f-flex justify-content-center ${classes.openCloseBtn}`}><KeyboardArrowRightIcon className="ml-3 arrow-logo" fontSize="large" color="action" /></div>
+      </PeakBtnWrapper>
+     </div>
     );
 };
 
 export default Header;
+
+
+const PeakBtnWrapper = styled.section`
+.peak-btn {
+  left: ${props => props.left};
+  border: 1px solid #878787;
+.arrow-logo {
+  color: red;
+  transform: rotate(${props => props.rotate});
+}
+}
+
+
+
+`;

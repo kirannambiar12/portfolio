@@ -68,6 +68,10 @@ p:not(.contact-intro), .paragraph{
   color: black;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .Typist .Cursor {
     display: inline-block; }
     .Typist .Cursor--blinking {
@@ -190,6 +194,10 @@ button:hover {
 
 .text-decoration-none:hover {
   text-decoration: none;
+}
+
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.7)
 }
 
 `;
