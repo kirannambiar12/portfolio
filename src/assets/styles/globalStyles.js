@@ -72,6 +72,14 @@ p:not(.contact-intro), .paragraph{
   cursor: pointer;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
 .Typist .Cursor {
     display: inline-block; }
     .Typist .Cursor--blinking {

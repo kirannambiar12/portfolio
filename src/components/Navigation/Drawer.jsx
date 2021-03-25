@@ -3,12 +3,11 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import CloudIcon from '@material-ui/icons/Cloud';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   list: {
@@ -17,6 +16,13 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  sidebarLinks: {
+    color: '#919191',
+    '&:hover': {
+      textDecoration: 'none',
+      color: '#494949',
+    }
+  }
 });
 
 export default function SideDrawer({ state, setState }) {
@@ -36,55 +42,14 @@ export default function SideDrawer({ state, setState }) {
         role="presentation"
         className={clsx(classes.list)}
       >
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        <List className="mt-5">
+          {SIDEBAR_LINKS.map(({title, handle, icon}) => (
+              <Link className={classes.sidebarLinks} to={handle}>
+            <ListItem button key={title}>
+            <ListItemIcon>{icon}</ListItemIcon>
+              <ListItemText primary={title} />
             </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+              </Link>
           ))}
         </List>
       </div>
@@ -99,3 +64,8 @@ export default function SideDrawer({ state, setState }) {
     </div>
   );
 }
+
+
+const SIDEBAR_LINKS = [
+  { title: "Weather App", handle: "/widgets#weather", icon: <CloudIcon />}
+]
