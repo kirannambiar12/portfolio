@@ -136,7 +136,7 @@ button:hover {
   background-color: #d50000;
 }
 
-.makeStyles-materialIcon-3 {
+.MuiSvgIcon-fontSizeLarge {
     color: white;
 }
 
