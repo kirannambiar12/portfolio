@@ -136,10 +136,6 @@ button:hover {
   background-color: #d50000;
 }
 
-.MuiSvgIcon-fontSizeLarge {
-    color: white;
-}
-
 .MuiBottomNavigationAction-label {
     color: white;
     font-size: 14px;

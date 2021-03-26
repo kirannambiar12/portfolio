@@ -31,6 +31,7 @@ const useStyles = makeStyles({
     },
   },
   materialIcon: {
+    color: 'white',
     '&:hover': {
       color: 'red',
     },
@@ -93,10 +94,6 @@ const PeakBtnWrapper = styled.section`
     color: red;
     transform: rotate(${props => props.rotate});
     }
-  }
-
-  .MuiSvgIcon-root {
-    fill: white !important;
   }
 
 `;
