@@ -95,4 +95,8 @@ const PeakBtnWrapper = styled.section`
     }
   }
 
+  .MuiSvgIcon-root {
+    fill: white !important;
+  }
+
 `;
