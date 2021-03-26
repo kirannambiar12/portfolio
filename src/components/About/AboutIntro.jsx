@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import about from "../../assets/images/about.jpg";
-import scroll from "../../assets/images/scroll.png";
 import Spinner from "../Spinner";
 import ReactHtmlParser from "react-html-parser";
 

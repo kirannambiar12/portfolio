@@ -68,5 +68,5 @@ export default function SideDrawer({ state, setState }) {
 
 const SIDEBAR_LINKS = [
   { title: "Weather App", handle: "weather-app", icon: <CloudIcon />},
-  { title: "Mars Rover", handle: "mars-rover-images", icon: <img style={{ width: "24px" }} src="https://img.icons8.com/wired/64/000000/space-ship.png"/>}
+  { title: "Mars Rover", handle: "mars-rover-images", icon: <img style={{ width: "24px" }} src="https://img.icons8.com/wired/64/000000/space-ship.png" alt="space icon"/>}
 ]
