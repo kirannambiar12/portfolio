@@ -7,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CloudIcon from '@material-ui/icons/Cloud';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -43,12 +44,12 @@ export default function SideDrawer({ state, setState }) {
       >
         <List className="mt-5">
           {React.Children.toArray(SIDEBAR_LINKS.map(({title, handle, icon}) => (
-              <a className={classes.sidebarLinks} href={handle}>
+              <Link onClick={() => setState(!state)} className={classes.sidebarLinks} to={`/widgets/${handle}`}>
             <ListItem button key={title}>
             <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={title} />
             </ListItem>
-              </a>
+              </Link>
           )))}
         </List>
       </div>
@@ -66,6 +67,6 @@ export default function SideDrawer({ state, setState }) {
 
 
 const SIDEBAR_LINKS = [
-  { title: "Weather App", handle: "/widgets#weather", icon: <CloudIcon />},
-  { title: "Mars Rover", handle: "/widgets#marsImages", icon: <img style={{ width: "24px" }} src="https://img.icons8.com/wired/64/000000/space-ship.png"/>}
+  { title: "Weather App", handle: "weather-app", icon: <CloudIcon />},
+  { title: "Mars Rover", handle: "mars-rover-images", icon: <img style={{ width: "24px" }} src="https://img.icons8.com/wired/64/000000/space-ship.png"/>}
 ]

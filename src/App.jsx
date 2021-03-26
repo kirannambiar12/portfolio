@@ -17,7 +17,8 @@ import PrivateRoute from "./components/Authentication/PrivateRoute";
 import HttpsRedirect from "react-https-redirect";
 import { ToastProvider } from "react-toast-notifications";
 import GlobalStyle from "./assets/styles/globalStyles";
-import Widgets from "./components/Widgets";
+import TemperatureTracker from "./components/Widgets/WeatherApp/TemperatureTracker";
+import Nasa from "./components/Widgets/NASA";
 
 const App = () => {
   useEffect(() => {
@@ -47,7 +48,8 @@ const App = () => {
                 <Route path="/about" component={About} />
                 <Route path="/work" component={Technologies} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/widgets" component={Widgets} />
+                <Route path="/widgets/weather-app" component={TemperatureTracker} />
+                <Route path="/widgets/mars-rover-images" component={Nasa} />
                 <Route path="*" component={NotFound} />
               </Switch>
               </ToastProvider>
