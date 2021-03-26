@@ -17,8 +17,7 @@ import PrivateRoute from "./components/Authentication/PrivateRoute";
 import HttpsRedirect from "react-https-redirect";
 import { ToastProvider } from "react-toast-notifications";
 import GlobalStyle from "./assets/styles/globalStyles";
-import Widegts from "./components/Widgets";
-
+import Widgets from "./components/Widgets";
 
 const App = () => {
   useEffect(() => {
@@ -48,7 +47,7 @@ const App = () => {
                 <Route path="/about" component={About} />
                 <Route path="/work" component={Technologies} />
                 <Route path="/contact" component={Contact} />
-                <Route path="/widgets" component={Widegts} />
+                <Route path="/widgets" component={Widgets} />
                 <Route path="*" component={NotFound} />
               </Switch>
               </ToastProvider>

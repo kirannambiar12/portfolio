@@ -68,6 +68,10 @@ p:not(.contact-intro), .paragraph{
   color: black;
 }
 
+.color-red {
+  color: red;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

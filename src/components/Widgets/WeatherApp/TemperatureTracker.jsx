@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import weather from "../../assets/images/weather.jpg"
+import weather from "../../../assets/images/weather.jpg"
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
@@ -109,7 +109,7 @@ const TemperatureTracker = () => {
                 if (data.cod === 200) {
                     setTempData(data)
                 } else {
-                    alert("We couldn't find the city you were looking for!! Please try again.")
+                    alert("We couldn't find the city you were looking for!! Please try again.", data.cod)
                 }
             })
             .catch((error) => {
@@ -127,7 +127,7 @@ const TemperatureTracker = () => {
             <div className="container" id="weather">
                 <div className="row search-bar-row">
                     <div className="col-12 search-bar-column">
-                        <h4 className="color-white weather-checker">Weather App</h4>
+                        <h3 className="color-white weather-checker"> <span className="color-red"> Weather </span> App</h3>
                         <TextField
                             className={`${tempData ? "wc-after" : "wc-before" }`}
                             InputProps={{
@@ -142,15 +142,15 @@ const TemperatureTracker = () => {
                     </div>
                     {tempData &&
                         <div className="col-12">
-                            <h2 className="mt-5 color-white text-center mx-auto ">{tempData?.name}, {tempData?.sys?.country}</h2>
+                            <h3 className="mt-5 color-white text-center mx-auto ">{tempData?.name}, {tempData?.sys?.country}</h3>
                             <h4 className="date-time color-white text-center">{currentDate}</h4>
                         </div>}
                     <div className="col-12 col-md-6 my-4">
                         {tempData &&
                             <div className="transparent-card">
-                                <h2 className="color-white temp city-name">{tempData?.main?.temp} &#176;</h2>
-                                <span className="color-white text-capitalize">Feels Like: {tempData?.main?.feels_like} &#176;</span>
-                                <p className="color-white text-capitalize">{tempData?.weather[0].description}</p>
+                                <h2 className="color-white temp city-name text-center">{tempData?.main?.temp} &#176;</h2>
+                                <span className="color-white text-capitalize text-center mx-auto d-block">Feels Like: {tempData?.main?.feels_like} &#176;</span>
+                                <p className="color-white text-capitalize text-center">{tempData?.weather[0].description}</p>
                             </div>
                         }
                     </div>
