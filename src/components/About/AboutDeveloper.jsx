@@ -7,7 +7,11 @@ import ReactHtmlParser from "react-html-parser";
 
 const Wrapper = styled.section`
  
-  margin-top: 60px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   
   #developer {
     display: flex;

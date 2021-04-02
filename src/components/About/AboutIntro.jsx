@@ -10,6 +10,11 @@ const Wrapper = styled.section`
     height: unset;
   }
 
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   @keyframes blinkingText {
     0% {
       color: red;
@@ -104,8 +109,8 @@ const AboutIntro = () => {
   return (
     <Wrapper>
       {aboutInfo < 1 ?
-      <Spinner />
-         : aboutInfo.map((item) => {
+        <Spinner />
+        : aboutInfo.map((item) => {
           return (
             <div key={item.id} className="container">
               <div className="row section-spacing-80t">
@@ -127,7 +132,7 @@ const AboutIntro = () => {
               </div>
             </div>
           );
-        }) }
+        })}
     </Wrapper>
   );
 };

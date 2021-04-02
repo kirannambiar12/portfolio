@@ -13,7 +13,10 @@ const Wrapper = styled.section`
   background-size: cover;
   background-repeat: no-repeat;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   #outlined-basic {
       background-color: white;
@@ -87,12 +90,12 @@ const Wrapper = styled.section`
 
 .wc-before {
     position: relative;
-    top: 100px;
+    top: 0px;
 }
 
 .wc-after {
     position: relative;
-    top: 0px;
+    top: -100px;
     transition: top 500ms ease-in-out;
 }
 `;
@@ -124,12 +127,12 @@ const TemperatureTracker = () => {
 
     return (
         <Wrapper >
+            <h3 className="color-white weather-checker"> <span className="color-red"> Weather </span> App</h3>
             <div className="container" id="weather">
                 <div className="row search-bar-row">
                     <div className="col-12 search-bar-column">
-                        <h3 className="color-white weather-checker"> <span className="color-red"> Weather </span> App</h3>
                         <TextField
-                            className={`${tempData ? "wc-after" : "wc-before" }`}
+                            className={`${tempData ? "wc-after" : "wc-before"}`}
                             InputProps={{
                                 endAdornment: (
                                     <InputAdornment position="start">
