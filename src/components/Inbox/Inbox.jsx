@@ -97,14 +97,14 @@ const Inbox = () => {
   };
 
   useEffect(() => {
-    fetch("https://portfolio-django-backend.herokuapp.com/api/contact/")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact/`)
       .then((res) => res.json())
       .then((res) => setEmails(res));
   }, []);
 
   const deleteEmail = (email) => {
     fetch(
-      `https://portfolio-django-backend.herokuapp.com/api/contact/${email.id}`,
+      `${process.env.REACT_APP_BACKEND_URL}/api/contact/${email.id}`,
       {
         method: "DELETE",
         headers: {
@@ -113,7 +113,7 @@ const Inbox = () => {
       }
     ).then((res) => {
       setLoader(false);
-      fetch("https://portfolio-django-backend.herokuapp.com/api/contact/")
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact/`)
         .then((res) => res.json())
         .then((res) => setEmails(res));
       if (res.status === 204 || res.status === 200) {

@@ -83,7 +83,7 @@ const ContactForm = () => {
     e.preventDefault();
     const data = { name, email_id, subject };
     setLoader(true);
-    fetch("https://portfolio-django-backend.herokuapp.com/api/contact/", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

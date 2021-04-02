@@ -35,7 +35,7 @@ const Login = () => {
 
   const loginClicked = () => {
     const data = { username, password };
-    fetch("https://portfolio-django-backend.herokuapp.com/auth/", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

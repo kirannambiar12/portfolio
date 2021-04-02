@@ -82,10 +82,10 @@ const Technologies = () => {
   const [framework, setFramework] = useState([]);
 
   useEffect(() => {
-    fetch("https://portfolio-django-backend.herokuapp.com/api/work/service")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/work/service`)
       .then((res) => res.json())
       .then(setService);
-    fetch("https://portfolio-django-backend.herokuapp.com/api/work/f&t")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/work/f&t`)
       .then((res) => res.json())
       .then(setFramework);
   }, []);

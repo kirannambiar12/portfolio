@@ -79,7 +79,7 @@ const AboutDeveloper = () => {
   const [aboutDeveloper, setAboutDeveloper] = useState([]);
 
   useEffect(() => {
-    fetch("https://portfolio-django-backend.herokuapp.com/api/about/developer/")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/about/developer/`)
       .then((res) => res.json())
       .then(setAboutDeveloper);
   }, []);
