@@ -193,7 +193,6 @@ const TemperatureTracker = () => {
                     </div>
                 </div>
             </div>
-
         </Wrapper>
     )
 }

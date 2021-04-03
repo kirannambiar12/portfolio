@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CloudIcon from '@material-ui/icons/Cloud';
 import { Link } from "react-router-dom";
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
 const useStyles = makeStyles({
   list: {
@@ -68,5 +69,6 @@ export default function SideDrawer({ state, setState }) {
 
 const SIDEBAR_LINKS = [
   { title: "Weather App", handle: "weather-app", icon: <CloudIcon />},
-  { title: "Mars Rover", handle: "mars-rover-images", icon: <img style={{ width: "24px" }} src="https://img.icons8.com/wired/64/000000/space-ship.png" alt="space icon"/>}
+  { title: "Mars Rover", handle: "mars-rover-images", icon: <img style={{ width: "24px" }} src="https://img.icons8.com/wired/64/000000/space-ship.png" alt="space icon"/>},
+  { title: "Latest News", handle: "news", icon: <ImportContactsIcon /> }
 ]

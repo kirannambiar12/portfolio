@@ -68,6 +68,14 @@ p:not(.contact-intro), .paragraph{
   color: black;
 }
 
+.background-black {
+  background-color: black;
+}
+
+.background-red {
+  background-color: red;
+}
+
 .color-red {
   color: red;
 }

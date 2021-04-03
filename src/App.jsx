@@ -19,6 +19,7 @@ import { ToastProvider } from "react-toast-notifications";
 import GlobalStyle from "./assets/styles/globalStyles";
 import TemperatureTracker from "./components/Widgets/WeatherApp/TemperatureTracker";
 import Nasa from "./components/Widgets/NASA";
+import NewsApi from "./components/Widgets/NewsApi/NewsApi";
 
 const App = () => {
   useEffect(() => {
@@ -50,6 +51,7 @@ const App = () => {
                 <Route path="/contact" component={Contact} />
                 <Route path="/widgets/weather-app" component={TemperatureTracker} />
                 <Route path="/widgets/mars-rover-images" component={Nasa} />
+                <Route path="/widgets/news" component={NewsApi} />
                 <Route path="*" component={NotFound} />
               </Switch>
               </ToastProvider>
