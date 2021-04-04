@@ -91,7 +91,7 @@ const NewsApi = () => {
     const [sort, setSort] = React.useState("popularity");
 
     const findNews = () => {
-        fetch(`http://api.mediastack.com/v1/news?&countries=in&keywords=${search}&access_key=${process.env.REACT_APP_NEWSAPI_KEY}`)
+        fetch(`http://api.mediastack.com/v1/news?&countries=in&keywords=${search}&sort=${sort}&access_key=${process.env.REACT_APP_NEWSAPI_KEY}`)
             .then(res => res.json())
             .then(data => setNews(data))
             .catch((error) => {
