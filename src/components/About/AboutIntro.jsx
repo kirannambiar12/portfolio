@@ -126,7 +126,7 @@ const AboutIntro = () => {
                   <img
                     className="aboutus-img img-fluid"
                     src={about}
-                    alt=""
+                    alt="Kiran Nambiar"
                   />
                 </div>
               </div>

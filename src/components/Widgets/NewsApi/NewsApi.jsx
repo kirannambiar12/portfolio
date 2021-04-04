@@ -40,6 +40,7 @@ const Wrapper = styled.section`
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        padding: 10px;
     }
 
     .filter-section {
@@ -70,16 +71,27 @@ const Wrapper = styled.section`
     }
     }
 
+    .article-description {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* number of lines to show */
+        -webkit-box-orient: vertical;
+        line-height: normal;
+        font-size: 14px;
+        color: grey;
+    }
+
 `;
 
 const NewsApi = () => {
 
-    const [News, setNews] = React.useState();
+    const [news, setNews] = React.useState([]);
     const [search, setSearch] = React.useState("covid");
     const [sort, setSort] = React.useState("popularity");
 
     const findNews = () => {
-        fetch(`https://newsapi.org/v2/everything?q=${search}&sortBy=${sort}&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`)
+        fetch(`http://api.mediastack.com/v1/news?&countries=in&keywords=${search}&access_key=${process.env.REACT_APP_NEWSAPI_KEY}`)
             .then(res => res.json())
             .then(data => setNews(data))
             .catch((error) => {
@@ -90,7 +102,7 @@ const NewsApi = () => {
 
     React.useEffect(() => {
         const findHeadlineNews = () => {
-            fetch(`https://newsapi.org/v2/top-headlines?country=in&page=1&apiKey=${process.env.REACT_APP_NEWSAPI_KEY}`)
+            fetch(`http://api.mediastack.com/v1/news?&countries=in&access_key=${process.env.REACT_APP_NEWSAPI_KEY}`)
                 .then(res => res.json())
                 .then(data => setNews(data))
                 .catch((error) => {
@@ -101,34 +113,33 @@ const NewsApi = () => {
         findHeadlineNews();
     }, [])
 
-    console.log(News)
 
     return (
         <Wrapper className="container">
             <h3 className="text-center heading color-red mb-4">News</h3>
             <div className="row filter-section d-flex justify-content-around filter-categories py-3 py-md-2">
-                    <div className="col-md-4 col-6">
-                        <div className="search news-search mx-auto">
+                <div className="col-md-4 col-6">
+                    <div className="search news-search mx-auto">
                         <label className="color-white" htmlFor="searchNews">Search:</label> <br />
                         <input id="searchNews" placeholder="Search here" className="news-search" type="text" onChange={(e) => setSearch(e.target.value)} />
-                        </div>
-                        </div>
-                    <div className="search col-md-4 col-6">
-                        <div class="dropdown sort-dropdown mx-auto">
-                            <label className="color-white" htmlFor="slct"> Sort By:</label> <br />
-                            <select className="sort-dropdown" onChange={(e) => setSort(e.target.value)} name="slct" id="slct">
-                                <option value="popularity">Popularity</option>
-                                <option value="relevancy">Relevancy</option>
-                                <option value="publishedAt">Latest</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div className="filter col-md-4 col-12">
-                        <button className="filter-btn mx-auto" onClick={() => findNews()}>Apply</button>
                     </div>
                 </div>
+                <div className="search col-md-4 col-6">
+                    <div class="dropdown sort-dropdown mx-auto">
+                        <label className="color-white" htmlFor="slct"> Sort By:</label> <br />
+                        <select className="sort-dropdown" onChange={(e) => setSort(e.target.value)} name="slct" id="slct">
+                            <option value="popularity">Popularity</option>
+                            <option value="published_desc">Old First</option>
+                            <option value="published_asc">Latest First</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="filter col-md-4 col-12">
+                    <button className="filter-btn mx-auto" onClick={() => findNews()}>Apply</button>
+                </div>
+            </div>
             <div className="row">
-                {News?.articles?.map((article) => (
+                {news?.data?.map((article) => (
                     <div className="col-12 col-md-6 col-lg-4 equal-col">
                         <NewsCards article={article} />
                     </div>
