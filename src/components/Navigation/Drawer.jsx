@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CloudIcon from '@material-ui/icons/Cloud';
 import { Link } from "react-router-dom";
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+// import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
 const useStyles = makeStyles({
   list: {
