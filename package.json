@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@wework/ray-core": "^1.16.6",
     "aos": "^2.3.4",
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.2",
     "moment": "^2.29.1",
     "react": "^16.13.1",
