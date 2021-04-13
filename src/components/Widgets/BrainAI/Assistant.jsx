@@ -36,7 +36,7 @@ const Assistant = () => {
   const fetchResp = async () => {
     try {
       const res = await axios.get(
-        `https://cors-anywhere.herokuapp.com/http://api.brainshop.ai/get?bid=155540&key=4ZUA5qGrv5Da196K&uid=kiran&msg=${userMessage}`
+        `http://api.brainshop.ai/get?bid=155540&key=4ZUA5qGrv5Da196K&uid=kiran&msg=${userMessage}`
       );
       await setConversation([...conversation, { message: userMessage, isUser: true, currentDate: Date().toLocaleString() }, { message: res.data.cnt, isUser: false, currentDate: Date().toLocaleString() }]);
     } catch (err) {
