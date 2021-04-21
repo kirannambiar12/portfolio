@@ -145,9 +145,6 @@ p:not(.contact-intro), .paragraph{
 }
 
 .MuiBottomNavigation-root.dropdown.makeStyles-root-1 {
-  .MuiBottomNavigationAction-root.MuiBottomNavigationAction-iconOnly {
-    padding-top: 5px;
-  }
   button {
     height: 50px;
   }
