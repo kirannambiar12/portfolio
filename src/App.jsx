@@ -20,7 +20,7 @@ import GlobalStyle from "./assets/styles/globalStyles";
 import TemperatureTracker from "./components/Widgets/WeatherApp/TemperatureTracker";
 import Nasa from "./components/Widgets/NASA";
 import NewsApi from "./components/Widgets/NewsApi/NewsApi";
-import Assistant from "./components/Widgets/BrainAI/Assistant";
+// import Assistant from "./components/Widgets/BrainAI/Assistant";
 
 const App = () => {
   useEffect(() => {

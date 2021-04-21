@@ -136,7 +136,7 @@ const NewsApi = () => {
                 .then(doc => {
                     doc.data().data.forEach((data) => {
                         data.pageData.forEach((newsInfo) => {
-                            if(newsInfo.source == source) {
+                            if(newsInfo.source === source) {
                                 pushFilterNewsData.push(newsInfo)
                             }
                         })
