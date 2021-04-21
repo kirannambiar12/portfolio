@@ -144,8 +144,8 @@ p:not(.contact-intro), .paragraph{
   background-color: #d50000;
 }
 
-.MuiBottomNavigation-root.dropdown.makeStyles-root-1 {
-  button {
+.MuiBottomNavigation-root.dropdown {
+  button.MuiBottomNavigationAction-root {
     height: 50px;
   }
 }
@@ -157,7 +157,7 @@ p:not(.contact-intro), .paragraph{
 }
 
 .MuiBottomNavigationAction-root:hover {
-    .MuiBottomNavigationAction-label, .MuiSvgIcon-fontSizeLarge {
+    .MuiBottomNavigationAction-label, .makeStyles-materialIcon-3 {
     color: red;
 } 
 }
@@ -166,7 +166,7 @@ p:not(.contact-intro), .paragraph{
     outline: none !important;
 }
 
-.MuiBottomNavigationAction-root.Mui-selected .MuiSvgIcon-fontSizeLarge, .Mui-selected {
+.MuiBottomNavigationAction-root.Mui-selected .makeStyles-materialIcon-3, .Mui-selected {
     color: red !important;
 }
 
@@ -177,7 +177,7 @@ p:not(.contact-intro), .paragraph{
 }
 
 .active-link {
-  .MuiSvgIcon-fontSizeLarge, .MuiBottomNavigationAction-label {
+  .makeStyles-materialIcon-3, .MuiBottomNavigationAction-label {
     color: red !important;
 }
 }
