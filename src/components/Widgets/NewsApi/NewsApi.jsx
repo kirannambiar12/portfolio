@@ -1,6 +1,9 @@
 import React from 'react';
 import NewsCards from './NewsCards';
+import Pagination from './Pagination';
 import styled from "styled-components";
+import { db } from '../../../config/firebase';
+import Button from '@material-ui/core/Button';
 
 const Wrapper = styled.section`
     margin-top: 80px;
@@ -82,69 +85,92 @@ const Wrapper = styled.section`
         color: grey;
     }
 
+    .article-description:not(.postedAt):hover {
+        color: #BFBFBF;
+    }
+
+    .color-hover-red:hover {
+        color: red;
+        text-decoration: underline;
+    }
+
+    .article-description:not(.postedAt).onhover__border__expand:after {
+        border-bottom: solid .5px #BFBFBF;  
+    }
+
+    .help-icon {
+        width: 18px;
+    }
+
+    .show-all { 
+        outline: none;
+        margin:  50px auto 0 auto;
+        display: block;
+        .MuiButton-label {
+        color: red;
+    }
+        color: #f34848;
+    }
+
+
 `;
 
 const NewsApi = () => {
-
     const [news, setNews] = React.useState([]);
-    const [search, setSearch] = React.useState("covid");
-    const [sort, setSort] = React.useState("popularity");
-
-    const findNews = () => {
-        fetch(`http://api.mediastack.com/v1/news?&countries=in&keywords=${search}&sort=${sort}&access_key=${process.env.REACT_APP_NEWSAPI_KEY}`)
-            .then(res => res.json())
-            .then(data => setNews(data))
-            .catch((error) => {
-                alert("Oppsss..Something went wrong! Please try again.")
-                console.log(error);
-            });
-    }
+    const [pagination, setPagination] = React.useState(0);
+    const [filteredNews, setFilteredNews] = React.useState([]);
 
     React.useEffect(() => {
-        const findHeadlineNews = () => {
-            fetch(`http://api.mediastack.com/v1/news?&countries=in&access_key=${process.env.REACT_APP_NEWSAPI_KEY}`)
-                .then(res => res.json())
-                .then(data => setNews(data))
-                .catch((error) => {
-                    alert("Oppsss..Something went wrong! Please try again.")
-                    console.log(error);
-                });
+        try {
+            db.collection('hacker-news').doc("news-data").get()
+                .then(doc => setNews(doc.data()))
+        } catch (error) {
+            console.log(error);
         }
-        findHeadlineNews();
-    }, [])
+    }, [news])
 
+    const filterBySource = async (source) => {
+        try {
+            let pushFilterNewsData = [];
+            await db.collection('hacker-news').doc("news-data").get()
+                .then(doc => {
+                    doc.data().data.forEach((data) => {
+                        data.pageData.forEach((newsInfo) => {
+                            if(newsInfo.source == source) {
+                                pushFilterNewsData.push(newsInfo)
+                            }
+                        })
+                    })
+                })
+                setFilteredNews(pushFilterNewsData);
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 
     return (
         <Wrapper className="container">
             <h3 className="text-center heading color-red mb-4">News</h3>
-            <div className="row filter-section d-flex justify-content-around filter-categories py-3 py-md-2">
-                <div className="col-md-4 col-6">
-                    <div className="search news-search mx-auto">
-                        <label className="color-white" htmlFor="searchNews">Search:</label> <br />
-                        <input id="searchNews" placeholder="Search here" className="news-search" type="text" onChange={(e) => setSearch(e.target.value)} />
-                    </div>
-                </div>
-                <div className="search col-md-4 col-6">
-                    <div class="dropdown sort-dropdown mx-auto">
-                        <label className="color-white" htmlFor="slct"> Sort By:</label> <br />
-                        <select className="sort-dropdown" onChange={(e) => setSort(e.target.value)} name="slct" id="slct">
-                            <option value="popularity">Popularity</option>
-                            <option value="published_desc">Old First</option>
-                            <option value="published_asc">Latest First</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="filter col-md-4 col-12">
-                    <button className="filter-btn mx-auto" onClick={() => findNews()}>Apply</button>
-                </div>
-            </div>
             <div className="row">
-                {news?.data?.map((article) => (
-                    <div className="col-12 col-md-6 col-lg-4 equal-col">
-                        <NewsCards article={article} />
+                {!filteredNews.length > 0 && news.data && news?.data[pagination].pageData.map((article) => (
+                    <div className="col-12 col-md-6 equal-col">
+                        <NewsCards filterBySource={filterBySource} article={article} />
+                    </div>
+                ))}
+                {filteredNews.length > 0 && filteredNews.map((article) => (
+                    <div className="col-12 col-md-6 equal-col">
+                        <NewsCards filterBySource={filterBySource} article={article} />
                     </div>
                 ))}
             </div>
+
+            {!filteredNews.length > 0 &&
+            <Pagination setPagination={setPagination} pagination={pagination} totalPage={news?.data?.length} />
+            }
+            {filteredNews.length > 0 &&
+                <Button onClick={() => setFilteredNews([])} className="show-all onhover__border__expand">Show All</Button>
+            }
         </Wrapper>
     )
 }

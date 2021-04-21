@@ -126,7 +126,7 @@ p:not(.contact-intro), .paragraph{
   height: 150px;
 }
 
-button {
+.styled-button {
   margin-top: 30px;
   width: 300px;
   height: 50px;
@@ -140,8 +140,14 @@ button {
     margin: 30px auto;
   }
 }
-button:hover {
+.styled-button:hover {
   background-color: #d50000;
+}
+
+.MuiBottomNavigation-root.dropdown.makeStyles-root-1 {
+  button {
+    height: 50px;
+  }
 }
 
 .MuiBottomNavigationAction-label {
@@ -151,7 +157,7 @@ button:hover {
 }
 
 .MuiBottomNavigationAction-root:hover {
-    .MuiBottomNavigationAction-label, .MuiSvgIcon-fontSizeLarge {
+    .MuiBottomNavigationAction-label, .makeStyles-materialIcon-3 {
     color: red;
 } 
 }
@@ -160,7 +166,7 @@ button:hover {
     outline: none !important;
 }
 
-.MuiBottomNavigationAction-root.Mui-selected .MuiSvgIcon-fontSizeLarge, .Mui-selected {
+.MuiBottomNavigationAction-root.Mui-selected .makeStyles-materialIcon-3, .Mui-selected {
     color: red !important;
 }
 
@@ -171,7 +177,7 @@ button:hover {
 }
 
 .active-link {
-  .MuiSvgIcon-fontSizeLarge, .MuiBottomNavigationAction-label {
+  .makeStyles-materialIcon-3, .MuiBottomNavigationAction-label {
     color: red !important;
 }
 }
@@ -215,6 +221,24 @@ button:hover {
 .MuiBackdrop-root {
   background-color: rgba(0, 0, 0, 0.7)
 }
+
+    // hover border-bottom expand
+
+    .onhover__border__expand {
+        display:inline-block;
+    }
+
+    .onhover__border__expand:after {
+        display:block;
+        content: '';
+        border-bottom: solid .5px red;  
+        transform: scaleX(0);  
+        transition: transform 200ms ease-in-out;
+    }
+
+    .onhover__border__expand:hover:after {
+        transform: scaleX(1);
+    }
 
 `;
 

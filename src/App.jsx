@@ -52,8 +52,8 @@ const App = () => {
                 <Route path="/contact" component={Contact} />
                 <Route path="/widgets/weather-app" component={TemperatureTracker} />
                 <Route path="/widgets/mars-rover-images" component={Nasa} />
-                {/* <Route path="/widgets/news" component={NewsApi} />
-                <Route path="/widgets/my-assistant" component={Assistant} /> */}
+                <Route path="/widgets/news" component={NewsApi} />
+                {/* <Route path="/widgets/my-assistant" component={Assistant} /> */}
                 <Route path="*" component={NotFound} />
               </Switch>
               </ToastProvider>

@@ -139,7 +139,7 @@ const ContactForm = () => {
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
           />
-          <button onClick={onSubmit} className="d-flex">
+          <button onClick={onSubmit} className="d-flex styled-button">
             <p className="mx-auto mt-2"> Submit </p>
             {loader ? (
               <img className="float-right mt-1" src={btnLoader} alt="" />
