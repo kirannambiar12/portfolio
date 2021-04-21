@@ -157,7 +157,7 @@ p:not(.contact-intro), .paragraph{
 }
 
 .MuiBottomNavigationAction-root:hover {
-    .MuiBottomNavigationAction-label, .makeStyles-materialIcon-3 {
+    .MuiBottomNavigationAction-label, .MuiSvgIcon-fontSizeLarge {
     color: red;
 } 
 }
@@ -166,7 +166,7 @@ p:not(.contact-intro), .paragraph{
     outline: none !important;
 }
 
-.MuiBottomNavigationAction-root.Mui-selected .makeStyles-materialIcon-3, .Mui-selected {
+.MuiBottomNavigationAction-root.Mui-selected .MuiSvgIcon-fontSizeLarge, .Mui-selected {
     color: red !important;
 }
 
@@ -177,7 +177,7 @@ p:not(.contact-intro), .paragraph{
 }
 
 .active-link {
-  .makeStyles-materialIcon-3, .MuiBottomNavigationAction-label {
+  .MuiSvgIcon-fontSizeLarge, .MuiBottomNavigationAction-label {
     color: red !important;
 }
 }

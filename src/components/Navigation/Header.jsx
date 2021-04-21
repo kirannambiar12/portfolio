@@ -67,9 +67,9 @@ const Header = () => {
         showLabels
         className={`${location.pathname === '/' ? "d-none" : "dropdown"} ${classes.root}`}
       >
-        <NavLink className="text-decoration-none" exact={true} activeClassName='active-link' to="/about"><BottomNavigationAction className={classes.navigationBtn} label="About" icon={<InfoIcon className={classes.materialIcon}  />} /></NavLink>
-        <NavLink className="text-decoration-none" activeClassName='active-link' to="/work"><BottomNavigationAction className={classes.navigationBtn} label="Work" icon={<WorkIcon className={classes.materialIcon}  />} /></NavLink>
-        <NavLink className="text-decoration-none" activeClassName='active-link' to="/contact"><BottomNavigationAction className={classes.navigationBtn} label="Contact" icon={<ContactMailIcon className={classes.materialIcon}  />} /></NavLink>
+        <NavLink className="text-decoration-none" exact={true} activeClassName='active-link' to="/about"><BottomNavigationAction className={classes.navigationBtn} label="About" icon={<InfoIcon className={classes.materialIcon} fontSize="large" />} /></NavLink>
+        <NavLink className="text-decoration-none" activeClassName='active-link' to="/work"><BottomNavigationAction className={classes.navigationBtn} label="Work" icon={<WorkIcon className={classes.materialIcon} fontSize="large" />} /></NavLink>
+        <NavLink className="text-decoration-none" activeClassName='active-link' to="/contact"><BottomNavigationAction className={classes.navigationBtn} label="Contact" icon={<ContactMailIcon className={classes.materialIcon} fontSize="large" />} /></NavLink>
       </BottomNavigation>
       <SideDrawer state={state} setState={setState} />
       <PeakBtnWrapper left={state ? "250px" : "0px"} drawerIsOpen={state} rotate={state ? "180deg" : "0"}>
