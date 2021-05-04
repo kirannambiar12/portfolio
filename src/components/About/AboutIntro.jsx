@@ -93,33 +93,29 @@ const Wrapper = styled.section`
 
   a {
     margin: auto;
-    display: block;
   }
 `;
 
 const AboutIntro = () => {
-  const [aboutInfo, setAboutInfo] = useState([]);
+  // const [aboutInfo, setAboutInfo] = useState([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/about/`)
-      .then((res) => res.json())
-      .then(res => setAboutInfo(res))
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/about/`)
+  //     .then((res) => res.json())
+  //     .then(res => setAboutInfo(res))
+  // }, []);
 
   return (
     <Wrapper>
-      {aboutInfo < 1 ?
-        <Spinner />
-        : aboutInfo.map((item) => {
-          return (
-            <div key={item.id} className="container">
+            <div className="container">
               <div className="row section-spacing-80t">
-                <h2 className="about-intro-title">{item.title}</h2>
+                <h2 className="about-intro-title">About</h2>
               </div>
               <div className="row content-spacing-30t">
                 <div className="col-12 col-md-6 order-2 order-md-1">
                   <div className="left-content">
-                    <span className="mt-5">{ReactHtmlParser(item.about_text)}</span>
+                    <p className="paragraph color-white">Hey, I am Kiran Nambiar. I am basically from Kerala but born and raised in Vadodara, Gujarat. I have completed my Bachelor of Engineering in Electronics and Communication in 2019.</p>
+                    <p className="paragraph color-white">After my B.E. I wanted to change my field. So I went to Bangalore did a 3 months course in Full Stack Development. After that I started searching for jobs and got a position as an intern in <a href="https://1stmain.co/" target="_blank">1st Main</a>, Bangalore. Did a 3 months internship in 1st Main and now working as a full time employee there itself.</p>
                   </div>
                 </div>
                 <div className="col-12 col-md-6 right-col order-1 order-md-2">
@@ -131,8 +127,6 @@ const AboutIntro = () => {
                 </div>
               </div>
             </div>
-          );
-        })}
     </Wrapper>
   );
 };

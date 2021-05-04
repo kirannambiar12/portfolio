@@ -80,20 +80,17 @@ const Wrapper = styled.section`
 `;
 
 const AboutDeveloper = () => {
-  const [aboutDeveloper, setAboutDeveloper] = useState([]);
+  // const [aboutDeveloper, setAboutDeveloper] = useState([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/about/developer/`)
-      .then((res) => res.json())
-      .then(setAboutDeveloper);
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/about/developer/`)
+  //     .then((res) => res.json())
+  //     .then(setAboutDeveloper);
+  // }, []);
 
   return (
     <Wrapper>
-      {aboutDeveloper &&
-        aboutDeveloper.map((item) => {
-          return (
-            <div key={item.id} id="developer" style={{ backgroundImage: `url(${item.developer_background_img})` }}>
+            <div id="developer">
               <div className="container">
                 <div className="row">
                   <h3 className="mt-5 do-as-developer">
@@ -102,7 +99,8 @@ const AboutDeveloper = () => {
                 </div>
                 <div className="row content-spacing-30t">
                   <div className="col-12 col-md-8 mx-auto">
-                    <p className="paragraph color-white">{ReactHtmlParser(item.about_developer_text)}</p>
+                    <p className="paragraph color-white">At the very beginning I was keen to work on Frontend but then I got the opportunity to explore more and started working on the backend and deployment stuff. I am open to learn new stuff, experiment new things and explore more.</p>
+                    <p className="paragraph color-white">I have been working on Full Stack Development less than a year and I have learnt so much. But there is still lots of stuff that i need to cover. So active learning on new things and polishing my skills.</p>
                   </div>
                 </div>
                 <div className="row">
@@ -121,8 +119,6 @@ const AboutDeveloper = () => {
                 </div>
               </div>
             </div>
-          );
-        })}
     </Wrapper>
   );
 };

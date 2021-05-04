@@ -49,7 +49,7 @@ h4 {
 
 p:not(.contact-intro), .paragraph{
     font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2rem;
     letter-spacing: 0.6px;
     font-weight: 200;

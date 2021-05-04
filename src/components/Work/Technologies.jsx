@@ -4,6 +4,7 @@ import Spinner from "../Spinner";
 import MetaTags from "react-meta-tags";
 import ReactHtmlParser from "react-html-parser";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { services } from "../../JSON/db"
 
 const Wrapper = styled.section`
   padding-top: 50px;
@@ -78,24 +79,24 @@ const Wrapper = styled.section`
 `;
 
 const Technologies = () => {
-  const [service, setService] = useState([]);
-  const [framework, setFramework] = useState([]);
+  // const [service, setService] = useState([]);
+  // const [framework, setFramework] = useState([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/work/service`)
-      .then((res) => res.json())
-      .then(setService);
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/work/f&t`)
-      .then((res) => res.json())
-      .then(setFramework);
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/work/service`)
+  //     .then((res) => res.json())
+  //     .then(setService);
+  //   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/work/f&t`)
+  //     .then((res) => res.json())
+  //     .then(setFramework);
+  // }, []);
 
   return (
     <Wrapper>
       <MetaTags>
         <meta property="og:url" content="http://www.kirannambiar.in/work" />
       </MetaTags>
-      {service < 1 ? (
+      {services < 1 ? (
         <Spinner />
       ) : (
         <div className="container">
@@ -105,9 +106,9 @@ const Technologies = () => {
             </h3>
           </div>
           <div className="progress-bars">
-            {framework &&
-              service &&
-              service.map((item, index) => {
+            {
+              services &&
+              services.map((item, index) => {
                 const tech = item.technologies;
                 return (
                   <div key={index}>
