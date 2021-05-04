@@ -10,7 +10,7 @@ import Technologies from "./components/Work/Technologies";
 import Header from "./components/Navigation/Header";
 import "aos/dist/aos.css";
 import Analytics from "react-router-ga";
-import Login from "./components/Authentication/Login";
+// import Login from "./components/Authentication/Login";
 import { CookiesProvider } from "react-cookie";
 import Inbox from "./components/Inbox/Inbox";
 import PrivateRoute from "./components/Authentication/PrivateRoute";

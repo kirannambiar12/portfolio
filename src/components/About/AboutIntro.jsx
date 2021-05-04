@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import about from "../../assets/images/about.jpg";
-import Spinner from "../Spinner";
-import ReactHtmlParser from "react-html-parser";
+// import Spinner from "../Spinner";
+// import ReactHtmlParser from "react-html-parser";
 
 
 const Wrapper = styled.section`
@@ -115,7 +115,7 @@ const AboutIntro = () => {
                 <div className="col-12 col-md-6 order-2 order-md-1">
                   <div className="left-content">
                     <p className="paragraph color-white">Hey, I am Kiran Nambiar. I am basically from Kerala but born and raised in Vadodara, Gujarat. I have completed my Bachelor of Engineering in Electronics and Communication in 2019.</p>
-                    <p className="paragraph color-white">After my B.E. I wanted to change my field. So I went to Bangalore did a 3 months course in Full Stack Development. After that I started searching for jobs and got a position as an intern in <a href="https://1stmain.co/" target="_blank">1st Main</a>, Bangalore. Did a 3 months internship in 1st Main and now working as a full time employee there itself.</p>
+                    <p className="paragraph color-white">After my B.E. I wanted to change my field. So I went to Bangalore did a 3 months course in Full Stack Development. After that I started searching for jobs and got a position as an intern in <a href="https://1stmain.co/" rel="noopener noreferrer" target="_blank">1st Main</a>, Bangalore. Did a 3 months internship in 1st Main and now working as a full time employee there itself.</p>
                   </div>
                 </div>
                 <div className="col-12 col-md-6 right-col order-1 order-md-2">
