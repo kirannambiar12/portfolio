@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import frontend from "../../assets/images/frontend.svg";
 import backend from "../../assets/images/backend.svg";
 import deploy from "../../assets/images/deployments.svg";
-import ReactHtmlParser from "react-html-parser";
+// import ReactHtmlParser from "react-html-parser";
 
 const Wrapper = styled.section`
  
