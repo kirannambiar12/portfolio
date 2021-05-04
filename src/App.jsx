@@ -45,7 +45,7 @@ const App = () => {
             <ToastProvider>
               <Switch>
                 <Route exact path="/" component={Homepage} />
-                <Route path="/login" component={Login} />
+                {/* <Route path="/login" component={Login} /> */}
                 <PrivateRoute path="/inbox" component={Inbox} />
                 <Route path="/about" component={About} />
                 <Route path="/work" component={Technologies} />
