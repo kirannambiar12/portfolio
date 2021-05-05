@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import home from "../../assets/images/home.jpg";
+import home from "../../assets/images/home.avif";
 import Typist from "react-typist";
 import { Link } from "react-router-dom";
 import MetaTags from "react-meta-tags";
