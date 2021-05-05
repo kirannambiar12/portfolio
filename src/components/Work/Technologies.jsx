@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Spinner from "../Spinner";
-import MetaTags from "react-meta-tags";
 import ReactHtmlParser from "react-html-parser";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { services } from "../../JSON/db"
+import Head from "../../layout/Head";
 
 const Wrapper = styled.section`
   padding-top: 50px;
@@ -92,10 +92,9 @@ const Technologies = () => {
   // }, []);
 
   return (
+    <>
+    <Head url="work" title="Kiran Nambiar | Work" />
     <Wrapper>
-      <MetaTags>
-        <meta property="og:url" content="http://www.kirannambiar.in/work" />
-      </MetaTags>
       {services < 1 ? (
         <Spinner />
       ) : (
@@ -128,6 +127,7 @@ const Technologies = () => {
         </div>
       )}
     </Wrapper>
+    </>
   );
 };
 

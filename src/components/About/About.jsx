@@ -1,16 +1,12 @@
 import React from "react";
 import AboutIntro from "./AboutIntro";
 import AboutDeveloper from "./AboutDeveloper";
-import MetaTags from "react-meta-tags";
-import about from "../../assets/images/about.jpg";
+import Head from "../../layout/Head";
 
 const About = () => {
   return (
     <>
-      <MetaTags>
-        <meta property="og:url" content="http://www.kirannambiar.in/about" />
-        <meta property="og:image" content={about} />
-      </MetaTags>
+    <Head url="about" title="Kiran Nambiar | About" />
       <AboutIntro />
       <AboutDeveloper />
     </>
