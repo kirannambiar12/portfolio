@@ -1,7 +1,7 @@
 import React from "react";
 import ContactIntro from "./ContactIntro";
 import ContactForm from "./ContactForm";
-import Head from "../../layout/Head";
+import Head from "../layout/Head";
 
 const Contact = () => {
   return (

@@ -4,7 +4,7 @@ import Spinner from "../Spinner";
 import ReactHtmlParser from "react-html-parser";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { services } from "../../JSON/db"
-import Head from "../../layout/Head";
+import Head from "../layout/Head";
 
 const Wrapper = styled.section`
   padding-top: 50px;

@@ -1,7 +1,7 @@
 import React from "react";
 import AboutIntro from "./AboutIntro";
 import AboutDeveloper from "./AboutDeveloper";
-import Head from "../../layout/Head";
+import Head from "../layout/Head";
 
 const About = () => {
   return (
