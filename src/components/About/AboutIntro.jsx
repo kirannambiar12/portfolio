@@ -122,7 +122,7 @@ const AboutIntro = () => {
                   <img
                     className="aboutus-img img-fluid"
                     src={about}
-                    alt="Kiran Nambiar"
+                    alt="Kiran Nambiar | I am a full stack developer. I build websites. I can work on both frontend and backend. I use latest technologies and frameworks like React, Django, Wagtail and much more."
                   />
                 </div>
               </div>
