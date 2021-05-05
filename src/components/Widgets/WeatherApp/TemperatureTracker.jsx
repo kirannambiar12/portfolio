@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
-import weather from "../../../assets/images/weather.jpg"
+import weather from "../../../assets/images/weather.avif"
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import SearchIcon from '@material-ui/icons/Search';
@@ -8,6 +8,7 @@ import moment from 'moment';
 
 const Wrapper = styled.section`
 
+.weather-data {
   background-image: url(${weather});
   background-position: center;
   background-size: cover;
@@ -17,6 +18,12 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  filter: blur(2px) brightness(90%);
+}
+
 
   #outlined-basic {
       background-color: white;
@@ -58,9 +65,6 @@ const Wrapper = styled.section`
       margin-left: 40px;
   }
 
-  .search-bar-column {
-      margin-top: 100px;
-  }
 .MuiInputAdornment-positionStart {
     position: absolute;
     right: 50px;
@@ -98,6 +102,11 @@ const Wrapper = styled.section`
     top: -100px;
     transition: top 500ms ease-in-out;
 }
+
+.position-relative {
+    position: relative;
+    top: 20vh;
+}
 `;
 
 const TemperatureTracker = () => {
@@ -127,6 +136,8 @@ const TemperatureTracker = () => {
 
     return (
         <Wrapper >
+            <div className="weather-data"></div>
+            <div className="position-relative">
             <h3 className="color-white weather-checker"> <span className="color-red"> Weather </span> App</h3>
             <div className="container" id="weather">
                 <div className="row search-bar-row">
@@ -191,6 +202,7 @@ const TemperatureTracker = () => {
                             </div>
                         }
                     </div>
+                </div>
                 </div>
             </div>
         </Wrapper>
