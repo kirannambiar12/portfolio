@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import about from "../../assets/images/about.avif";
+import about from "../../assets/images/about.jpg";
 // import Spinner from "../Spinner";
 // import ReactHtmlParser from "react-html-parser";
 
