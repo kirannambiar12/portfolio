@@ -127,7 +127,7 @@ const NewsApi = () => {
         } catch (error) {
             console.log(error);
         }
-    }, [news])
+    }, [])
 
     const filterBySource = async (source) => {
         try {
@@ -146,7 +146,6 @@ const NewsApi = () => {
         } catch (error) {
             console.log(error);
         }
-
     }
 
     return (
