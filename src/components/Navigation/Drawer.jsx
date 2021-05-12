@@ -61,6 +61,7 @@ export default function SideDrawer({ state, setState }) {
     <div>
       <Drawer transitionDuration={{ enter: 200, exit: 0 }} open={state} onClose={toggleDrawer(false)}>
         {list()}
+        <a href="https://www.buymeacoffee.com/knambiar" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" className="bmc-btn" alt="Buy Me A Coffee" /></a>
       </Drawer>
     </div>
   );

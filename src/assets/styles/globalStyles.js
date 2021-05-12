@@ -244,6 +244,20 @@ p:not(.contact-intro), .paragraph{
         transform: scaleX(1);
     }
 
+    .bmc-btn {
+      height: 60px;
+      width: 217px;
+      position: fixed;
+      bottom: 10px;
+      left: 15px;
+      transform: scale(0.8);
+    }
+
+    .bmc-btn:hover {
+      transform: scale(0.9);
+      transition: 1s transform;
+    }
+
 `;
 
 export default GlobalStyle;
