@@ -21,7 +21,6 @@ const Jokes = () => {
             axios(options)
                 .then(response => {
                     setPressed(true);
-
                     setJokes(response.data);
                 });
         } catch (error) {
@@ -31,9 +30,7 @@ const Jokes = () => {
 
     return (
         <Wrapper>
-            <Button onClick={() => fetchJokes()} className="joke-generator-btn" variant="contained" color="primary">
-                New Joke
-            </Button>
+            <h1 className={`color-white bored-hear-joke ${jokes ? "jokes-heading-anim" : "jokes-heading"}`}> <span className="color-red">Bored?</span> Let's hear some jokes.</h1>
             <Spring
                 from={{ transform: 'scale(0)' }}
                 to={{ transform: pressed ? 'scale(1)' : 'scale(0)' }}>
@@ -41,6 +38,9 @@ const Jokes = () => {
                     <animated.h1 className="color-white text-center justify-content-center jokes" style={props}>{jokes?.joke}</animated.h1>
                 )}
             </Spring>
+            <Button onClick={() => fetchJokes()} className="joke-generator-btn" variant="contained" color="primary">
+                New Joke
+            </Button>
         </Wrapper>
     )
 }
@@ -54,16 +54,52 @@ const Wrapper = styled.section`
   justify-content: center;
 
   .jokes {
-      font-size: 22px;
+      font-size: 32px;
+      max-width: 800px;
+      margin: auto;
+
+      @media (max-width: 600px) {
+          font-size: 18px;
+          padding-left: 20px;
+          padding-right: 20px;
+      }
+  }
+
+  .bored-hear-joke {
+      font-size: 62px;
+      font-weight: bolder;
+      text-align: center;
+      position: relative;
+      transition: top .5s ease-in;
+
+      @media (max-width: 600px) {
+          font-size: 32px;
+      }
+  }
+
+  .jokes-heading {
+      top: 40%;
+  }
+
+  .jokes-heading-anim {
+    top: 100px;
+    @media (max-width: 600px) {
+          top: 150px;
+      }
   }
 
   .joke-generator-btn {
       position: absolute;
-      top: 100px;
-      right: 50px;
+      top: 70%;
+      right: 20%;
       height: 40px;
       width: 180px;
       border-radius: 0px;
       outline: none;
+      background-color: red;
+      @media (max-width: 600px) {
+        transform: translateX(-50%);
+        left: 50%;
+      }
   }
 `;

@@ -9,6 +9,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import CloudIcon from '@material-ui/icons/Cloud';
 import { Link } from "react-router-dom";
 import CodeIcon from '@material-ui/icons/Code';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
 
 const useStyles = makeStyles({
   list: {
@@ -72,4 +73,5 @@ const SIDEBAR_LINKS = [
   { title: "Weather App", handle: "weather-app", icon: <CloudIcon />},
   { title: "Mars Rover", handle: "mars-rover-images", icon: <img width={24} height={24} src="https://img.icons8.com/wired/64/000000/space-ship.png" alt="space icon"/>},
   { title: "Dev News", handle: "news", icon: <CodeIcon />},
+  { title: "Jokes", handle: "jokes", icon: <SentimentVerySatisfiedIcon />},
 ]
