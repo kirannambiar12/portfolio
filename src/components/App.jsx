@@ -19,6 +19,7 @@ import GlobalStyle from "../assets/styles/globalStyles";
 import TemperatureTracker from "./Widgets/WeatherApp/TemperatureTracker";
 import Nasa from "./Widgets/NASA";
 import NewsApi from "./Widgets/NewsApi/NewsApi";
+import Jokes from "./Widgets/Jokes/Jokes";
 // import Assistant from "./components/Widgets/BrainAI/Assistant";
 
 const App = () => {
@@ -50,6 +51,7 @@ const App = () => {
                 <Route path="/widgets/weather-app" component={TemperatureTracker} />
                 <Route path="/widgets/mars-rover-images" component={Nasa} />
                 <Route path="/widgets/news" component={NewsApi} />
+                <Route path="/widgets/jokes" component={Jokes} />
                 {/* <Route path="/widgets/my-assistant" component={Assistant} /> */}
                 <Route path="*" component={NotFound} />
               </Switch>
